@@ -1,13 +1,304 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body{
+  font-family: 'Permanent Marker', cursive;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.App {
+  overflow-x: hidden !important;
+  background-image: url("/players/field/bg.png") !important;
+  background-repeat: no-repeat;
+  background-position: center;
 }
+.field  img {
+  width:120px;
+  height:170px
+}
+
+.btn-secondary{
+  visibility: hidden;
+}
+
+input[type=text]{
+  margin-top: 25px;
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+input[type=text]::placeholder{
+  color: #fff;
+}
+
+input[type=text]:focus {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.search-box{
+  margin-bottom: 5%;
+  padding-top: 5%;
+}
+.contain img{
+  width: 130px;
+  height: 185px;
+}
+.contain {
+  overflow-x: scroll !important;
+  overflow-y: hidden !important;
+  display: flex;
+  text-align: center;
+  height: 240px;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #8C8C8C; 
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #666666; 
+}
+
+.contain .players img:hover{
+  transform: scale(1.1);
+}
+
+.contain .players img{
+  transition: transform .2s; 
+}
+
+.field .players img:hover{
+  transform: scale(1.2);
+}
+
+.field .players img{
+  transition: transform .2s; 
+}
+.select{
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  padding-right: 2px;
+  text-align: center;
+}
+.players h5{
+  color: aliceblue;
+}
+
+.players{
+  display: inline-block;
+}
+
+.field .fw{
+  text-align: center;
+  height: 235px;
+}
+
+.field .md{
+  text-align: center;
+  height: 235px;
+}
+
+.field .df{
+  text-align: center;
+  height: 225px;
+}
+
+.field .gk{
+  text-align: center;
+  height: 185px;
+}
+
+@media(min-width:1100px){
+  .field{
+    padding-top: 7%;
+    padding-bottom: 7%;
+  }
+}
+@media(min-width:1300px){
+  .field .players{
+    padding: 0 4% 0 4%;
+  }
+  
+  .field{
+    padding-top: 7%;
+    padding-bottom: 7%;
+  }
+  .select{
+    padding-top: 4%;
+    padding-bottom: 5%;
+  }
+}
+.field{
+    background-image: url("/players/field/field.png") !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+}
+
+@media (min-width:600px) and (max-width:767px){
+  .field{
+    height: 1000px;
+  }
+  .App{
+    background-image: url("/players/field/mobile.jpg") !important;
+    background-size: 100%;
+    background-repeat: inherit
+  }
+}
+
+@media (min-width:768px) and (max-width:1730px){
+  .col-md-5{
+    padding-right: 0px;
+  }
+  .col-md-7{
+    padding-left: 0px;
+  }
+}
+
+@media (min-width:1300px) and (max-width:1700px){
+  .field{
+    background-size: 100%;
+  }
+}
+
+
+@media (min-width:1300px) and (max-width:1366px){
+  .field  img {
+    width:100px;
+    height:140px;
+  }
+  .field .fw{
+    height: 200px;
+  }
+
+  .field .md{
+    height: 190px;
+  }
+
+  .field .df{
+    height: 190px;
+  }
+
+  .field .gk{
+    height: 150px;
+  }
+
+  .contain img{
+    width: 110px;
+    height: 150px;
+  }
+  .contain {
+    height: 210px;
+  }
+}
+@media (min-width:1367px) and (max-width:1700px){
+  .field  img {
+    width:110px;
+    height:150px;
+  }
+  .field .fw{
+    height: 210px;
+  }
+
+  .field .md{
+    height: 200px;
+  }
+
+  .field .df{
+    height: 200px;
+  }
+
+  .field .gk{
+    height: 160px;
+  }
+
+  .contain img{
+    width: 115px;
+    height: 160px;
+  }
+  .contain {
+    height: 220px;
+  }
+}
+
+@media(max-width:600px){
+  .App{
+    background-image: url("/players/field/mobile.jpg") !important;
+    background-size: 100%;
+    background-repeat: inherit
+  }
+  .field{
+    height: 940px;
+  }
+}
+@media(max-width:480px){
+  .field  img {
+    width:90px;
+    height:130px;
+  }
+  .App{
+    background-image: url("/players/field/mobile.jpg") !important;
+    background-size: 100%;
+    background-repeat: inherit
+  }
+  .field{
+    max-width: 400px !important;
+    height: 870px;
+  }
+  .field .fw{
+    height: 230px;
+  }
+
+  .field .md{
+    height: 220px;
+  }
+
+  .field .df{
+    height: 220px;
+  }
+
+  .field .gk{
+    height: 180px;
+  }
+  .navbar{
+    padding-top:5%;
+    padding-bottom:5%;
+  }
+  .navbar .navbar-brand{
+    font-size: 25px !important;
+  }
+}
+
+.card-player{
+  cursor: pointer;
+}
+
+.navbar{
+  padding-top:1%;
+  padding-bottom:1%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.19);
+  background-image: url('/players/field/header.png');
+  background-position-x: center;
+  background-size: 100%;
+}
+.footer{
+  left: 0;
+  bottom: 0;
+  width:100%;
+  color: #fff;
+  text-align: center;
+  padding-top:15px;
+  padding-bottom:15px;
+  background-image: url('/players/field/footer.png');
+  box-shadow:0px -3px 16px 0px rgba(50, 50, 50, 0.42);
+  background-position: center;
+  background-size: 100%;
+}
+
