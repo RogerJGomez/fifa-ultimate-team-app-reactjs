@@ -30,6 +30,7 @@ export class Lineup extends Component {
         }
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
+        this.showPlayers = this.showPlayers.bind(this);
     }
 
     openModal(rol) {
@@ -40,9 +41,63 @@ export class Lineup extends Component {
       }
      
      
-      closeModal() {
+    closeModal() {
         this.setState({modalOpen: false});
       }
+
+    showPlayers(props){
+        if(props.pos==="fw"){
+            let forwards = [
+                this.props.lineup.filter(player => player.rol === "lw").map(player =>
+                <Player key={player.id} search={this.openModal} del={this.props.del}  players={player} />),
+                this.props.lineup.filter(player => player.rol === "st").map(player =>
+                <Player key={player.id} search={this.openModal} del={this.props.del}  players={player} />),
+                this.props.lineup.filter(player => player.rol === "rw").map(player =>
+                <Player key={player.id} search={this.openModal} del={this.props.del}  players={player} />)
+            ] 
+            return (
+                forwards
+            )
+        }
+        else if(props.pos==="md"){
+            let midfielders = [
+                this.props.lineup.filter(player => player.rol === "lcm").map(player =>
+                    <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />),                                
+                    this.props.lineup.filter(player => player.rol === "cm").map(player =>
+                    <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />),    
+                    this.props.lineup.filter(player => player.rol === "rcm").map(player =>
+                    <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />)   
+            ] 
+            return (
+                midfielders
+            )
+        }
+        else if(props.pos==="df"){
+            let defense = [         
+                this.props.lineup.filter(player => player.rol === "lb").map(player =>
+                <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />),                                  
+                this.props.lineup.filter(player => player.rol === "lcb").map(player =>
+                <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />),    
+                this.props.lineup.filter(player => player.rol === "rcb").map(player =>
+                <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />),                  
+                this.props.lineup.filter(player => player.rol === "rb").map(player =>
+                <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />)             
+            ]
+            return (
+                defense
+            ) 
+        }
+        else{
+            let goalkeeper = this.props.lineup.filter(player => player.rol === "gk").map(player =>
+                <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />)
+            
+            return (
+                goalkeeper
+            ) 
+        }
+    }
+
+
     render() {
         return (
             <div className="col-md-7">
@@ -67,56 +122,16 @@ export class Lineup extends Component {
                     </Modal>
 
                     <div className="fw">
-                        {
-                            this.props.lineup.filter(player => player.rol === "lw").map(player =>
-                            <Player key={player.id} search={this.openModal} del={this.props.del}  players={player} />)                                
-                        }
-                        {
-                            this.props.lineup.filter(player => player.rol === "st").map(player =>
-                            <Player key={player.id} search={this.openModal} del={this.props.del}  players={player} />)    
-                        }
-                        {
-                            this.props.lineup.filter(player => player.rol === "rw").map(player =>
-                            <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />)    
-                        }
+                        <this.showPlayers pos={"fw"} />
                     </div>
                     <div className="md">
-                        {
-                            this.props.lineup.filter(player => player.rol === "lcm").map(player =>
-                            <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />)                                
-                        }
-                        {
-                            this.props.lineup.filter(player => player.rol === "cm").map(player =>
-                            <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />)    
-                        }
-                        {
-                            this.props.lineup.filter(player => player.rol === "rcm").map(player =>
-                            <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />)    
-                        }
+                        <this.showPlayers pos={"md"} />
                     </div>
                     <div className="df">
-                        {
-                            this.props.lineup.filter(player => player.rol === "lb").map(player =>
-                            <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />)                                
-                        }
-                        {
-                            this.props.lineup.filter(player => player.rol === "lcb").map(player =>
-                            <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />)    
-                        }
-                        {
-                            this.props.lineup.filter(player => player.rol === "rcb").map(player =>
-                            <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />)    
-                        }
-                        {
-                            this.props.lineup.filter(player => player.rol === "rb").map(player =>
-                            <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />)    
-                        }
+                        <this.showPlayers pos={"df"} />
                     </div>
                     <div className="gk">
-                        {
-                            this.props.lineup.filter(player => player.rol === "gk").map(player =>
-                            <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />)    
-                        }
+                        <this.showPlayers pos={"gk"} />
                     </div>
                 </div>
             </div>
