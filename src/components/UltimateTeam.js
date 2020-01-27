@@ -46,11 +46,18 @@ export class UltimateTeam extends Component {
     }
 
     add(id){
+<<<<<<< HEAD
         let newplayer,currentplayer,new_lineup, new_bench, new_void, void_card
         void_card = "void"
         this.state.bench.filter(player => player.id === id).map(player => newplayer = player)
         this.state.lineup.filter(player => player.rol === newplayer.rol).map(player => currentplayer = player)
         if(currentplayer.nombre===void_card){
+=======
+        let newplayer,currentplayer,new_lineup, new_bench, new_void
+        this.state.bench.filter(player => player.id === id).map(player => newplayer = player)
+        this.state.lineup.filter(player => player.rol === newplayer.rol).map(player => currentplayer = player)
+        if(currentplayer.nombre==="void"){
+>>>>>>> 6346a36371c73c4faad464a73ed5659e28bbb8c7
             newplayer.lineup=true
             new_void = this.state.void
             new_lineup = this.state.lineup.filter(player => player.rol!==newplayer.rol)
@@ -69,7 +76,11 @@ export class UltimateTeam extends Component {
     del(rol){
         let currentplayer, new_lineup, new_bench, void_player, new_void
         this.state.lineup.filter(player => player.rol === rol).map(player => currentplayer = player)
+<<<<<<< HEAD
         currentplayer.lineup=false
+=======
+        currentplayer.lineup=false;
+>>>>>>> 6346a36371c73c4faad464a73ed5659e28bbb8c7
         new_lineup = this.state.lineup.filter(player => player.rol!==rol) 
         this.state.void.filter(player => player.rol===rol).map(player=> void_player = player)
         new_void = this.state.void.filter(player => player.rol!==rol)

@@ -11,7 +11,11 @@ const customStyles = {
       bottom: 'auto',
       marginRight:'-50%',
       transform:'translate(-50%, -50%)',
+<<<<<<< HEAD
       backgroundImage:'url("/players/Field/search.png")',
+=======
+      backgroundImage:'url("/players/field/search.png")',
+>>>>>>> 6346a36371c73c4faad464a73ed5659e28bbb8c7
       backgroundSize:'150%',
       backgroundRepeat:'no-repeat',
       color:'#fff'

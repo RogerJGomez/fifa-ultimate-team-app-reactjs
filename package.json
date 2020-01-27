@@ -6,11 +6,18 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
+<<<<<<< HEAD
     "express": "^4.17.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-modal": "^3.11.1",
     "react-scripts": "3.2.0"
+=======
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-modal": "^3.11.1",
+    "react-scripts": "3.3.0"
+>>>>>>> 6346a36371c73c4faad464a73ed5659e28bbb8c7
   },
   "scripts": {
     "start": "react-scripts start",
