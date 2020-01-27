@@ -22,5 +22,5 @@ And also search a player by name in each position
 ## Technologies
 Project is created with:
 * ReactJS
-
+* Bootstrap
 
