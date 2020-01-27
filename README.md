@@ -7,24 +7,18 @@
 To run this project, install it locally using npm:
 
 ```
-$ cd ../fut-master
+$ cd ../futhead-app-master
 $ npm install
 $ npm start
 ```
 ## General info
 
 This app allows you to add and remove a player from each position dynamically from the bench to the field
-<<<<<<< HEAD
-![alt text](https://i.ibb.co/3NKSWK9/main.jpg)
-
-And also search a player by name in each position
-=======
 
 ![alt text](https://i.ibb.co/3NKSWK9/main.jpg)
 
 And also search a player by name in each position
 
->>>>>>> 6346a36371c73c4faad464a73ed5659e28bbb8c7
 ![alt text](https://i.ibb.co/5KdgrqL/search-modal.jpg)
 		
 ## Technologies

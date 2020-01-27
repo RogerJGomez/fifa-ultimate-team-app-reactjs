@@ -18,11 +18,7 @@ export class Player extends Component {
     hover(){
         this.setState(prevState => {
             const player = prevState.player
-<<<<<<< HEAD
             player.foto="/players/Field/search-card.png"
-=======
-            player.foto="/players/field/search-card.png"
->>>>>>> 6346a36371c73c4faad464a73ed5659e28bbb8c7
             return {
                 player: player
             }
@@ -31,11 +27,7 @@ export class Player extends Component {
     noHover(){
         this.setState(prevState => {
             const player = prevState.player
-<<<<<<< HEAD
             player.foto="/players/Field/card.png"
-=======
-            player.foto="/players/field/card.png"
->>>>>>> 6346a36371c73c4faad464a73ed5659e28bbb8c7
             return {
                 player: player
             }
