@@ -302,3 +302,7 @@ input[type=text]:focus {
   background-size: 100%;
 }
 
+
+.modal-card{
+  cursor: pointer;
+}

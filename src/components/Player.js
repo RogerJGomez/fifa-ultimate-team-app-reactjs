@@ -55,8 +55,7 @@ export class Player extends Component {
         if(this.props.modal){
             return(
                 <div className="players">
-                    <img src={this.state.player.foto} width="140px" height="195px" alt=""/>
-                    <button onClick={()=>{this.props.add(this.state.player.id); this.props.closeModal()}} className="btn btn-sm btn-success"><i className="fa fa-plus fa-lg"></i></button>
+                    <div className="modal-card" onClick={()=>{this.props.add(this.state.player.id); this.props.closeModal()}}><img src={this.state.player.foto} width="140px" height="195px" alt=""/></div>
                 </div>
             )
         }
