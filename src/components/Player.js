@@ -54,7 +54,7 @@ export class Player extends Component {
                 </div>
             )
         }
-        if(this.props.modal){
+        if(this.props.modalIsOpen){
             return(
                 <div className="players">
                     <div className="modal-card" onClick={()=>{this.props.addPlayer(this.state.player.id); this.props.closeModal()}}>

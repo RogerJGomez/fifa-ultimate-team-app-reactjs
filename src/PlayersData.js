@@ -85,7 +85,7 @@ var Players =[
         nombre:'Luka Modric',
         posicion: 'midfielder',
         rol:'lcm',
-        foto:'/players/midfielders/modric.png',
+        foto:'/players/Midfielders/modric.png',
         id:10,
         lineup:false
     },

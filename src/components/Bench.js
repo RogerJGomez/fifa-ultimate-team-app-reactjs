@@ -1,50 +1,46 @@
 import React, { Component } from 'react';
 import Player from './Player'
 
-
 export class Bench extends Component {
+
     constructor(){
-        super()
-        this.showPlayers = this.showPlayers.bind(this);
+        super();
+        this.showPlayer = this.showPlayer.bind(this);
+        this.createRows = this.createRows.bind(this);
     }
 
-
-    showPlayers(props){
+    showPlayer(props) {
         return (
-            this.props.bench.filter(player => player.posicion === props.position).map(player =>
-                <Player key={player.id} addPlayer={this.props.addPlayer}  players={player} />)
+            this.props.bench
+                .filter(player => player.posicion === props.position)
+                .map(player => <Player key={player.id} addPlayer={this.props.addPlayer}  players={player} />)
         )
     }
 
-    render(){
+    createRows() {
+        const positions = ["forward", "midfielder", "defense", "goalkeeper"];
+
+        var rows = positions.map(position => {
+            return(
+                <div className="contain" key={position}>
+                    <this.showPlayer position={position} />
+                </div>
+                )
+        });
+
+        return rows
+    }
+
+    render() {
         return (
             <div className="col-md-5">
                 <div className="select">
-                    <div className="contain">
-                        {
-                            <this.showPlayers position={"forward"} />
-                        }
-                    </div>
-                    <div className="contain">
-                        {
-                            <this.showPlayers position={"midfielder"} />
-                        }
-                    </div>
-                    <div className="contain">
-                        {
-                            <this.showPlayers position={"defense"} />
-                        }
-                    </div>
-                    <div className="contain">
-                        {
-                            <this.showPlayers position={"goalkeeper"} />
-                        }
-                    </div>
+                    <this.createRows/>
                 </div>
             </div>
         )
     }
-
 }
 
 export default Bench
+

@@ -69,7 +69,7 @@ export class Lineup extends Component {
                         <div className="contain search-box">    
                             {
                                 this.props.searched.filter(player => player.rol === this.state.rol && this.state.modalIsOpen).map(player =>
-                                <Player key={player.id} addPlayer={this.props.addPlayer} modal={this.state.modalIsOpen} closeModal={this.closeModal} players={player} />)
+                                <Player key={player.id} addPlayer={this.props.addPlayer} modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} players={player} />)
                             }
                         </div>
                         <button className="btn btn-dark" onClick={this.closeModal}>Close</button>

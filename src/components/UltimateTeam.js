@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Players from '../Data';
+import Players from '../PlayersData';
 import Bench from './Bench';
 import Lineup from './Lineup'
 export class UltimateTeam extends Component {
@@ -15,12 +15,7 @@ export class UltimateTeam extends Component {
         this.searchPlayer = this.searchPlayer.bind(this)
     }
     componentDidMount(){
-       Players.sort(function(a, b) {
-        var textA = a.rol.toUpperCase();
-        var textB = b.rol.toUpperCase();
-        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-        })
-
+       Players.sort((playerA,playerB) => (playerA.rol<playerB.rol ? -1 : (playerA.rol > playerB.rol) ? 1 : 0))
         this.setState({
             bench:Players.filter(bench => !bench.lineup),
             lineup:Players.filter(player => player.lineup),
@@ -77,15 +72,11 @@ export class UltimateTeam extends Component {
         }
         new_benchArray = this.state.bench
         new_benchArray.push(currentplayer)
-        new_benchArray.sort(function(a, b) {
-            var textA = a.rol.toUpperCase();
-            var textB = b.rol.toUpperCase();
-            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-        })
+        new_benchArray.sort((playerA,playerB) => (playerA.rol<playerB.rol ? -1 : (playerA.rol > playerB.rol) ? 1 : 0))
         new_lineupArray.push(new_voidPlayer)
         this.setState({
             bench:new_benchArray,
-            lineup:new_lineupArray,
+            lineup:new_lineupArray
         })
     }
 
