@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Players from './Players';
+import Players from '../Data';
 import Bench from './Bench';
 import Lineup from './Lineup'
 export class UltimateTeam extends Component {
@@ -8,7 +8,6 @@ export class UltimateTeam extends Component {
         this.state = {
             bench:[],
             lineup:[],
-            void:[],
             search:[]
         }
         this.addPlayer = this.addPlayer.bind(this)
@@ -16,13 +15,14 @@ export class UltimateTeam extends Component {
         this.searchPlayer = this.searchPlayer.bind(this)
     }
     componentDidMount(){
-        Players.sort(function(a, b) {
-            var textA = a.rol.toUpperCase();
-            var textB = b.rol.toUpperCase();
-            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+       Players.sort(function(a, b) {
+        var textA = a.rol.toUpperCase();
+        var textB = b.rol.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
         })
+
         this.setState({
-            bench:Players.filter(player => !player.lineup),
+            bench:Players.filter(bench => !bench.lineup),
             lineup:Players.filter(player => player.lineup),
         })
     }
@@ -46,45 +46,46 @@ export class UltimateTeam extends Component {
     }
 
     addPlayer(id){
-        let newplayer,currentplayer,new_lineup, new_bench, new_void, void_card
-        void_card = "void"
+        let newplayer,currentplayer,new_lineupArray, new_benchArray
         this.state.bench.filter(player => player.id === id).map(player => newplayer = player)
         this.state.lineup.filter(player => player.rol === newplayer.rol).map(player => currentplayer = player)
-        if(currentplayer.nombre===void_card){
+        if(currentplayer.nombre==="void"){
             newplayer.lineup=true
-            new_void = this.state.void
-            new_lineup = this.state.lineup.filter(player => player.rol!==newplayer.rol)
-            new_lineup.push(newplayer)
-            new_void.push(currentplayer)
-            new_bench = this.state.bench.filter(player => player.id!==id)
+            new_lineupArray = this.state.lineup.filter(player => player.rol!==newplayer.rol)
+            new_lineupArray.push(newplayer)
+            new_benchArray = this.state.bench.filter(player => player.id!==id)
             this.setState({
-                bench:new_bench,
-                lineup:new_lineup,
-                void:new_void,
+                bench:new_benchArray,
+                lineup:new_lineupArray,
                 search:[]
             })
         }
     }
 
     deletePlayer(rol){
-        let currentplayer, new_lineup, new_bench, void_player, new_void
+        let currentplayer, new_lineupArray, new_benchArray, new_voidPlayer
         this.state.lineup.filter(player => player.rol === rol).map(player => currentplayer = player)
         currentplayer.lineup=false
-        new_lineup = this.state.lineup.filter(player => player.rol!==rol) 
-        this.state.void.filter(player => player.rol===rol).map(player=> void_player = player)
-        new_void = this.state.void.filter(player => player.rol!==rol)
-        new_bench = this.state.bench
-        new_bench.push(currentplayer)
-        new_bench.sort(function(a, b) {
+        new_lineupArray = this.state.lineup.filter(player => player.rol!==rol) 
+        new_voidPlayer = {
+            nombre:'void',
+            id:'_' + Math.random().toString(36).substr(2, 9),
+            posicion:rol,
+            rol:rol,
+            foto:'/players/Field/card.png',
+            lineup:true
+        }
+        new_benchArray = this.state.bench
+        new_benchArray.push(currentplayer)
+        new_benchArray.sort(function(a, b) {
             var textA = a.rol.toUpperCase();
             var textB = b.rol.toUpperCase();
             return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
         })
-        new_lineup.push(void_player)
+        new_lineupArray.push(new_voidPlayer)
         this.setState({
-            bench:new_bench,
-            lineup:new_lineup,
-            void: new_void
+            bench:new_benchArray,
+            lineup:new_lineupArray,
         })
     }
 

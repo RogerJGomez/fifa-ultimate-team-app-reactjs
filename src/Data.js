@@ -1,484 +1,484 @@
 var Players =[
     {
         nombre:'Lionel Messi',
-        posicion: 'fw',
+        posicion: 'forward',
         rol:'rw',
         foto:'/players/Forwards/messi.png',
-        id:'0',
+        id:0,
         lineup:false
     },
     {
         nombre:'Sterling',
-        posicion: 'fw',
+        posicion: 'forward',
         rol:'rw',
         foto:'/players/Forwards/sterling.png',
-        id:'1',
+        id:1,
         lineup:false
     },
     {
         nombre:'Cristiano Ronaldo',
-        posicion: 'fw',
+        posicion: 'forward',
         rol:'st',
         foto:'/players/Forwards/cristiano.png',
-        id:'2',
+        id:2,
         lineup:false
         
     },
     {
         nombre:'Ronaldo',
-        posicion: 'fw',
+        posicion: 'forward',
         rol:'st',
         foto:'/players/Forwards/ronaldo.png',
-        id:'3',
+        id:3,
         lineup:false
     },
     {
         nombre:'Neymar Jr',
-        posicion: 'fw',
+        posicion: 'forward',
         rol:'lw',
         foto:'/players/Forwards/neymar.png',
-        id:'4',
+        id:4,
         lineup:false
     },
     {
         nombre:'Ronaldinho',
-        posicion: 'fw',
+        posicion: 'forward',
         rol:'lw',
         foto:'/players/Forwards/ronaldinho.png',
-        id:'5',
+        id:5,
         lineup:false
     },
 
     {
         nombre:'De Bruyne',
-        posicion: 'md',
+        posicion: 'midfielder',
         rol:'rcm',
         foto:'/players/Midfielders/de-bruyne.png',
-        id:'6',
+        id:6,
         lineup:false
     },
     {
         nombre:'Gullit',
-        posicion: 'md',
+        posicion: 'midfielder',
         rol:'rcm',
         foto:'/players/Midfielders/gullit.png',
-        id:'7',
+        id:7,
         lineup:false
     },
     {
         nombre:'Patrick Vieira',
-        posicion: 'md',
+        posicion: 'midfielder',
         rol:'cm',
         foto:'/players/Midfielders/vieira.png',
-        id:'8',
+        id:8,
         lineup:false
     },
     {
         nombre:'Lothar Matthaus',
-        posicion: 'md',
+        posicion: 'midfielder',
         rol:'cm',
         foto:'/players/Midfielders/matthaus.png',
-        id:'9',
+        id:9,
         lineup:false
     },
     {
         nombre:'Luka Modric',
-        posicion: 'md',
+        posicion: 'midfielder',
         rol:'lcm',
         foto:'/players/midfielders/modric.png',
-        id:'10',
+        id:10,
         lineup:false
     },
     {
         nombre:'Zinedine Zidane',
-        posicion: 'md',
+        posicion: 'midfielder',
         rol:'lcm',
         foto:'/players/Midfielders/zidane.png',
-        id:'11',
+        id:11,
         lineup:false
     },
     {
         nombre:'Toni Kroos',
-        posicion: 'md',
+        posicion: 'midfielder',
         rol:'cm',
         foto:'/players/Midfielders/kroos.png',
-        id:'12',
+        id:12,
         lineup:false
     },
     {
         nombre:'Marcelo',
-        posicion: 'df',
+        posicion: 'defense',
         rol:'lb',
         foto:'/players/Defense/marcelo.png',
-        id:'13',
+        id:13,
         lineup:false
     },
     {
         nombre:'Roberto Carlos',
-        posicion: 'df',
+        posicion: 'defense',
         rol:'lb',
         foto:'/players/Defense/carlos.png',
-        id:'14',
+        id:14,
         lineup:false
     },
     {
         nombre:'Maldini',
-        posicion: 'df',
+        posicion: 'defense',
         rol:'rcb',
         foto:'/players/Defense/maldini.png',
-        id:'15',
+        id:15,
         lineup:false
     },
     {
         nombre:'van Dijk',
-        posicion: 'df',
+        posicion: 'defense',
         rol:'rcb',
         foto:'/players/Defense/van-dijk.png',
-        id:'16',
+        id:16,
         lineup:false
     },
     {
         nombre:'Piqué',
-        posicion: 'df',
+        posicion: 'defense',
         rol:'lcb',
         foto:'/players/Defense/pique.png',
-        id:'17',
+        id:17,
         lineup:false
     },
     {
         nombre:'Sergio Ramos',
-        posicion: 'df',
+        posicion: 'defense',
         rol:'lcb',
         foto:'/players/Defense/ramos.png',
-        id:'18',
+        id:18,
         lineup:false
     },
     {
         nombre:'Carlos Alberto',
-        posicion: 'df',
+        posicion: 'defense',
         rol:'rb',
         foto:'/players/Defense/alberto.png',
-        id:'19',
+        id:19,
         lineup:false
 
     },
     {
         nombre:'Joshua Kimmich',
-        posicion: 'df',
+        posicion: 'defense',
         rol:'rb',
         foto:'/players/Defense/kimmich.png',
-        id:'20',
+        id:20,
         lineup:false
     },
     {
         nombre:'Ter Stegen',
-        posicion: 'gk',
+        posicion: 'goalkeeper',
         rol:'gk',
         foto:'/players/Goalkeepers/ter-stegen.png',
-        id:'21',
+        id:21,
         lineup:false
     },
     {
         nombre:'van der Sar',
-        posicion: 'gk',
+        posicion: 'goalkeeper',
         rol:'gk',
         foto:'/players/Goalkeepers/van-der-sar.png',
-        id:'22',
+        id:22,
         lineup:false
     },
     {
         nombre:'Alisson Becker',
-        posicion: 'gk',
+        posicion: 'goalkeeper',
         rol:'gk',
         foto:'/players/Goalkeepers/alisson.png',
-        id:'23',
+        id:23,
         lineup:false
     },
     {
         nombre:'David De Gea',
-        posicion: 'gk',
+        posicion: 'goalkeeper',
         rol:'gk',
         foto:'/players/Goalkeepers/de-gea.png',
-        id:'24',
+        id:24,
         lineup:false
     },
     {
         nombre:'Lev Yashin',
-        posicion: 'gk',
+        posicion: 'goalkeeper',
         rol:'gk',
         foto:'/players/Goalkeepers/yashin.png',
-        id:'25',
+        id:25,
         lineup:false
     },
     {
         nombre:'Oblak',
-        posicion: 'gk',
+        posicion: 'goalkeeper',
         rol:'gk',
         foto:'/players/Goalkeepers/oblak.png',
-        id:'26',
+        id:26,
         lineup:false
     },
     {
         nombre:'Andres Iniesta',
-        posicion: 'md',
+        posicion: 'midfielder',
         rol:'lcm',
         foto:'/players/Midfielders/iniesta.png',
-        id:'27',
+        id:27,
         lineup:false
 
     },
     {
         nombre:'Kylian Mbappe',
-        posicion: 'fw',
+        posicion: 'forward',
         rol:'rw',
         foto:'/players/Forwards/mbappe.png',
-        id:'28',
+        id:28,
         lineup:false
 
     },
     {
         nombre:'Eden Hazard',
-        posicion: 'fw',
+        posicion: 'forward',
         rol:'lw',
         foto:'/players/Forwards/hazard.png',
-        id:'29',
+        id:29,
         lineup:false
 
     },
     {
         nombre:'Mohammed Salah',
-        posicion: 'fw',
+        posicion: 'forward',
         rol:'rw',
         foto:'/players/Forwards/salah.png',
-        id:'30',
+        id:30,
         lineup:false
 
     },
     {
         nombre:'Sadio Mane',
-        posicion: 'fw',
+        posicion: 'forward',
         rol:'lw',
         foto:'/players/Forwards/mane.png',
-        id:'31',
+        id:31,
         lineup:false
 
     },
     {
         nombre:'Robert Lewandowski',
-        posicion: 'fw',
+        posicion: 'forward',
         rol:'st',
         foto:'/players/Forwards/lewandowski.png',
-        id:'32',
+        id:32,
         lineup:false
 
     },
     {
         nombre:'Luis Suarez',
-        posicion: 'fw',
+        posicion: 'forward',
         rol:'st',
         foto:'/players/Forwards/suarez.png',
-        id:'33',
+        id:33,
         lineup:false
 
     },
     {
         nombre:'Sergio Busquets',
-        posicion: 'md',
+        posicion: 'midfielder',
         rol:'cm',
         foto:'/players/Midfielders/busquets.png',
-        id:'34',
+        id:34,
         lineup:false
 
     },
     {
         nombre:'Frenkie De Jong',
-        posicion: 'md',
+        posicion: 'midfielder',
         rol:'rcm',
         foto:'/players/Midfielders/de-jong.png',
-        id:'35',
+        id:35,
         lineup:false
 
     },
     {
         nombre:'Andrea Pirlo',
-        posicion: 'md',
+        posicion: 'midfielder',
         rol:'lcm',
         foto:'/players/Midfielders/pirlo.png',
-        id:'36',
+        id:36,
         lineup:false
 
     },
     {
         nombre:'Paul Pogba',
-        posicion: 'md',
+        posicion: 'midfielder',
         rol:'rcm',
         foto:'/players/Midfielders/pogba.png',
-        id:'37',
+        id:37,
         lineup:false
 
     },
     {
         nombre:'Jordi Alba',
-        posicion: 'df',
+        posicion: 'defense',
         rol:'lb',
         foto:'/players/Defense/jordi-alba.png',
-        id:'38',
+        id:38,
         lineup:false
 
     },
     {
         nombre:'Andrew Robertson',
-        posicion: 'df',
+        posicion: 'defense',
         rol:'lb',
         foto:'/players/Defense/robertson.png',
-        id:'39',
+        id:39,
         lineup:false
 
     },
     {
         nombre:'Carles Puyol',
-        posicion: 'df',
+        posicion: 'defense',
         rol:'rcb',
         foto:'/players/Defense/puyol.png',
-        id:'40',
+        id:40,
         lineup:false
 
     },
     {
         nombre:'Franco Baresi',
-        posicion: 'df',
+        posicion: 'defense',
         rol:'lcb',
         foto:'/players/Defense/baresi.png',
-        id:'41',
+        id:41,
         lineup:false
 
     },
     {
         nombre:'Trent Alexander-Arnold',
-        posicion: 'df',
+        posicion: 'defense',
         rol:'rb',
         foto:'/players/Defense/alexander-arnold.png',
-        id:'42',
+        id:42,
         lineup:false
 
     },
     {
         nombre:'Dani Alves',
-        posicion: 'df',
+        posicion: 'defense',
         rol:'rb',
         foto:'/players/Defense/dani-alves.png',
-        id:'43',
+        id:43,
         lineup:false
 
     },
     {
         nombre:'Nesta',
-        posicion: 'df',
+        posicion:'defense',
         rol:'lcb',
         foto:'/players/Defense/nesta.png',
-        id:'44',
+        id:44,
         lineup:false
     },
     {
         nombre:'Hummels',
-        posicion: 'df',
+        posicion: 'defense',
         rol:'rcb',
         foto:'/players/Defense/hummels.png',
-        id:'45',
+        id:45,
         lineup:false
     },
     {
         nombre:'Handanovic',
-        posicion: 'gk',
+        posicion:'goalkeeper',
         rol:'gk',
         foto:'/players/Goalkeepers/handanovic.png',
-        id:'46',
+        id:46,
         lineup:false
     },
     {
         nombre:'void',
-        id:'50',
-        posicion:'fw',
+        id:47,
+        posicion:'forward',
         rol:'lw',
         foto:'/players/Field/card.png',
         lineup:true
     },
     {
         nombre:'void',
-        id:'51',
-        posicion:'fw',
+        id:48,
+        posicion:'forward',
         rol:'st',
         foto:'/players/Field/card.png',
         lineup:true
     },
     {
         nombre:'void',
-        id:'52',
-        posicion:'fw',
+        id:49,
+        posicion:'forward',
         rol:'rw',
         foto:'/players/Field/card.png',
         lineup:true
     },
     {
         nombre:'void',
-        id:'53',
-        posicion:'md',
-        rol:'rcm',
-        foto:'/players/Field/card.png',
-        lineup:true
-    },
-    {
-        nombre:'void',
-        id:'54',
-        posicion:'md',
-        rol:'cm',
-        foto:'/players/Field/card.png',
-        lineup:true
-    },
-    {
-        nombre:'void',
-        id:'55',
-        posicion:'md',
+        id:50,
+        posicion:'midfielder',
         rol:'lcm',
         foto:'/players/Field/card.png',
         lineup:true
     },
     {
         nombre:'void',
-        id:'56',
-        posicion:'df',
+        id:51,
+        posicion:'midfielder',
+        rol:'cm',
+        foto:'/players/Field/card.png',
+        lineup:true
+    },
+    {
+        nombre:'void',
+        id:55,
+        posicion:'midfielder',
+        rol:'rcm',
+        foto:'/players/Field/card.png',
+        lineup:true
+    },
+    {
+        nombre:'void',
+        id:52,
+        posicion:'defense',
         rol:'lb',
         foto:'/players/Field/card.png',
         lineup:true
     },
     {
         nombre:'void',
-        id:'57',
-        posicion:'df',
+        id:53,
+        posicion:'defense',
         rol:'lcb',
         foto:'/players/Field/card.png',
         lineup:true
     },
     {
         nombre:'void',
-        id:'58',
-        posicion:'df',
+        id:54,
+        posicion:'defense',
         rol:'rcb',
         foto:'/players/Field/card.png',
         lineup:true
     },
     {
         nombre:'void',
-        id:'59',
-        posicion:'df',
+        id:55,
+        posicion:'defense',
         rol:'rb',
         foto:'/players/Field/card.png',
         lineup:true
     },
     {
         nombre:'void',
-        id:'60',
-        posicion:'gk',
+        id:56,
+        posicion:'goalkeeper',
         rol:'gk',
         foto:'/players/Field/card.png',
         lineup:true

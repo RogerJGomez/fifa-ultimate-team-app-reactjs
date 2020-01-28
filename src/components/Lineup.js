@@ -46,55 +46,10 @@ export class Lineup extends Component {
       }
 
     showPlayers(props){
-        if(props.position==="fw"){
-            let forwards = [
-                this.props.lineup.filter(player => player.rol === "lw").map(player =>
-                <Player key={player.id} searchPlayer={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />),
-                this.props.lineup.filter(player => player.rol === "st").map(player =>
-                <Player key={player.id} searchPlayer={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />),
-                this.props.lineup.filter(player => player.rol === "rw").map(player =>
+        return (
+            this.props.lineup.filter(player => player.rol === props.rol).map(player =>
                 <Player key={player.id} searchPlayer={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />)
-            ] 
-            return (
-                forwards
-            )
-        }
-        else if(props.position==="md"){
-            let midfielders = [
-                this.props.lineup.filter(player => player.rol === "lcm").map(player =>
-                    <Player key={player.id} searchPlayer ={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />),                                
-                    this.props.lineup.filter(player => player.rol === "cm").map(player =>
-                    <Player key={player.id} searchPlayer={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />),    
-                    this.props.lineup.filter(player => player.rol === "rcm").map(player =>
-                    <Player key={player.id} searchPlayer={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />)   
-            ] 
-            return (
-                midfielders
-            )
-        }
-        else if(props.position==="df"){
-            let defense = [         
-                this.props.lineup.filter(player => player.rol === "lb").map(player =>
-                <Player key={player.id} searchPlayer ={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />),                                  
-                this.props.lineup.filter(player => player.rol === "lcb").map(player =>
-                <Player key={player.id} searchPlayer ={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />),    
-                this.props.lineup.filter(player => player.rol === "rcb").map(player =>
-                <Player key={player.id} searchPlayer ={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />),                  
-                this.props.lineup.filter(player => player.rol === "rb").map(player =>
-                <Player key={player.id} searchPlayer ={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />)             
-            ]
-            return (
-                defense
-            ) 
-        }
-        else{
-            let goalkeeper = this.props.lineup.filter(player => player.rol === "gk").map(player =>
-                <Player key={player.id} searchPlayer ={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />)
-            
-            return (
-                goalkeeper
-            ) 
-        }
+        )
     }
 
 
@@ -122,16 +77,23 @@ export class Lineup extends Component {
                     </Modal>
 
                     <div className="fw">
-                        <this.showPlayers position={"fw"} />
+                        <this.showPlayers rol={"lw"} />
+                        <this.showPlayers rol={"st"} />
+                        <this.showPlayers rol={"rw"} />
                     </div>
                     <div className="md">
-                        <this.showPlayers position={"md"} />
+                        <this.showPlayers rol={"lcm"} />
+                        <this.showPlayers rol={"cm"} />
+                        <this.showPlayers rol={"rcm"} />
                     </div>
                     <div className="df">
-                        <this.showPlayers position={"df"} />
+                        <this.showPlayers rol={"lb"} />
+                        <this.showPlayers rol={"lcb"} />
+                        <this.showPlayers rol={"rcb"} />
+                        <this.showPlayers rol={"rb"} />
                     </div>
                     <div className="gk">
-                        <this.showPlayers position={"gk"} />
+                        <this.showPlayers rol={"gk"} />
                     </div>
                 </div>
             </div>
