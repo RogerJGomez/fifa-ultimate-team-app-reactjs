@@ -11,9 +11,9 @@ export class UltimateTeam extends Component {
             void:[],
             search:[]
         }
-        this.add = this.add.bind(this)
-        this.del = this.del.bind(this)
-        this.search = this.search.bind(this)
+        this.addPlayer = this.addPlayer.bind(this)
+        this.deletePlayer = this.deletePlayer.bind(this)
+        this.searchPlayer = this.searchPlayer.bind(this)
     }
     componentDidMount(){
         Players.sort(function(a, b) {
@@ -27,7 +27,7 @@ export class UltimateTeam extends Component {
         })
     }
 
-    search(e){
+    searchPlayer(e){
         let search = e.target.value
         const sanitizedName = search && search.trim().toLowerCase();
         if (search.length>2){     
@@ -45,7 +45,7 @@ export class UltimateTeam extends Component {
         }
     }
 
-    add(id){
+    addPlayer(id){
         let newplayer,currentplayer,new_lineup, new_bench, new_void, void_card
         void_card = "void"
         this.state.bench.filter(player => player.id === id).map(player => newplayer = player)
@@ -66,7 +66,7 @@ export class UltimateTeam extends Component {
         }
     }
 
-    del(rol){
+    deletePlayer(rol){
         let currentplayer, new_lineup, new_bench, void_player, new_void
         this.state.lineup.filter(player => player.rol === rol).map(player => currentplayer = player)
         currentplayer.lineup=false
@@ -91,8 +91,8 @@ export class UltimateTeam extends Component {
     render() {
         return (          
             <div className="row">
-                <Bench bench={this.state.bench} add={this.add}/>
-                <Lineup lineup={this.state.lineup} add={this.add} del={this.del} search={this.search} searched={this.state.search}/>
+                <Bench bench={this.state.bench} addPlayer={this.addPlayer}/>
+                <Lineup lineup={this.state.lineup} addPlayer={this.addPlayer} deletePlayer={this.deletePlayer} searchPlayer={this.searchPlayer} searched={this.state.search}/>
             </div>
         )
     }

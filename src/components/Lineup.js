@@ -25,7 +25,7 @@ export class Lineup extends Component {
     constructor(){
         super()
         this.state = {
-            modalOpen:false,
+            modalIsOpen:false,
             rol:""
         }
         this.openModal = this.openModal.bind(this);
@@ -35,53 +35,53 @@ export class Lineup extends Component {
 
     openModal(rol) {
         this.setState({
-            modalOpen: true,
+            modalIsOpen: true,
             rol:rol
         });
       }
      
      
     closeModal() {
-        this.setState({modalOpen: false});
+        this.setState({modalIsOpen: false});
       }
 
     showPlayers(props){
-        if(props.pos==="fw"){
+        if(props.position==="fw"){
             let forwards = [
                 this.props.lineup.filter(player => player.rol === "lw").map(player =>
-                <Player key={player.id} search={this.openModal} del={this.props.del}  players={player} />),
+                <Player key={player.id} searchPlayer={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />),
                 this.props.lineup.filter(player => player.rol === "st").map(player =>
-                <Player key={player.id} search={this.openModal} del={this.props.del}  players={player} />),
+                <Player key={player.id} searchPlayer={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />),
                 this.props.lineup.filter(player => player.rol === "rw").map(player =>
-                <Player key={player.id} search={this.openModal} del={this.props.del}  players={player} />)
+                <Player key={player.id} searchPlayer={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />)
             ] 
             return (
                 forwards
             )
         }
-        else if(props.pos==="md"){
+        else if(props.position==="md"){
             let midfielders = [
                 this.props.lineup.filter(player => player.rol === "lcm").map(player =>
-                    <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />),                                
+                    <Player key={player.id} searchPlayer ={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />),                                
                     this.props.lineup.filter(player => player.rol === "cm").map(player =>
-                    <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />),    
+                    <Player key={player.id} searchPlayer={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />),    
                     this.props.lineup.filter(player => player.rol === "rcm").map(player =>
-                    <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />)   
+                    <Player key={player.id} searchPlayer={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />)   
             ] 
             return (
                 midfielders
             )
         }
-        else if(props.pos==="df"){
+        else if(props.position==="df"){
             let defense = [         
                 this.props.lineup.filter(player => player.rol === "lb").map(player =>
-                <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />),                                  
+                <Player key={player.id} searchPlayer ={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />),                                  
                 this.props.lineup.filter(player => player.rol === "lcb").map(player =>
-                <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />),    
+                <Player key={player.id} searchPlayer ={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />),    
                 this.props.lineup.filter(player => player.rol === "rcb").map(player =>
-                <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />),                  
+                <Player key={player.id} searchPlayer ={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />),                  
                 this.props.lineup.filter(player => player.rol === "rb").map(player =>
-                <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />)             
+                <Player key={player.id} searchPlayer ={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />)             
             ]
             return (
                 defense
@@ -89,7 +89,7 @@ export class Lineup extends Component {
         }
         else{
             let goalkeeper = this.props.lineup.filter(player => player.rol === "gk").map(player =>
-                <Player key={player.id} search ={this.openModal} del={this.props.del}  players={player} />)
+                <Player key={player.id} searchPlayer ={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />)
             
             return (
                 goalkeeper
@@ -103,18 +103,18 @@ export class Lineup extends Component {
             <div className="col-md-7">
                 <div className="field">
                     <Modal
-                        isOpen={this.state.modalOpen}
+                        isOpen={this.state.modalIsOpen}
                         onRequestClose={this.closeModal}
                         style={customStyles}
                         contentLabel="Search a player"
                     >
                     <div className="container">     
                         <h2 ref={subtitle => this.subtitle = subtitle}>Select a player ({this.state.rol})</h2>
-                        <input type="text" className="form-control" placeholder='search by name'onChange={this.props.search}/>
+                        <input type="text" className="form-control" placeholder='search by name'onChange={this.props.searchPlayer}/>
                         <div className="contain search-box">    
                             {
-                                this.props.searched.filter(player => player.rol === this.state.rol && this.state.modalOpen).map(player =>
-                                <Player key={player.id} add={this.props.add} modal={this.state.modalOpen} closeModal={this.closeModal} players={player} />)
+                                this.props.searched.filter(player => player.rol === this.state.rol && this.state.modalIsOpen).map(player =>
+                                <Player key={player.id} addPlayer={this.props.addPlayer} modal={this.state.modalIsOpen} closeModal={this.closeModal} players={player} />)
                             }
                         </div>
                         <button className="btn btn-dark" onClick={this.closeModal}>Close</button>
@@ -122,16 +122,16 @@ export class Lineup extends Component {
                     </Modal>
 
                     <div className="fw">
-                        <this.showPlayers pos={"fw"} />
+                        <this.showPlayers position={"fw"} />
                     </div>
                     <div className="md">
-                        <this.showPlayers pos={"md"} />
+                        <this.showPlayers position={"md"} />
                     </div>
                     <div className="df">
-                        <this.showPlayers pos={"df"} />
+                        <this.showPlayers position={"df"} />
                     </div>
                     <div className="gk">
-                        <this.showPlayers pos={"gk"} />
+                        <this.showPlayers position={"gk"} />
                     </div>
                 </div>
             </div>

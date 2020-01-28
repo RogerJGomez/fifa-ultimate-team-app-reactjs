@@ -9,25 +9,25 @@ export default function Bench(props) {
                 <div className="contain">
                     {
                         props.bench.filter(player => player.posicion === "fw").map(player =>
-                        <Player key={player.id} add={props.add}  players={player} />)
+                        <Player key={player.id} addPlayer={props.addPlayer}  players={player} />)
                     }
                 </div>
                 <div className="contain">    
                     {
                         props.bench.filter(player => player.posicion === "md").map(player =>
-                        <Player key={player.id} add={props.add}  players={player} />)
+                        <Player key={player.id} addPlayer={props.addPlayer}  players={player} />)
                     }
                 </div>
                 <div className="contain">  
                     {
                         props.bench.filter(player => player.posicion === "df").map(player =>
-                        <Player key={player.id} add={props.add}  players={player} />)
+                        <Player key={player.id} addPlayer={props.addPlayer}  players={player} />)
                     }
                 </div>
                 <div className="contain">
                     {
                         props.bench.filter(player => player.posicion === "gk").map(player =>
-                        <Player key={player.id} add={props.add}  players={player} />)
+                        <Player key={player.id} addPlayer={props.addPlayer}  players={player} />)
                     }
                 </div>
             </div>
