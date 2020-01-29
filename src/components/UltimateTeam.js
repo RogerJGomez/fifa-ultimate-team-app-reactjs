@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Players from '../PlayersData';
 import Bench from './Bench';
-import Lineup from './Lineup'
+import Lineup from './Lineup';
+import Swal from 'sweetalert2'
+
 export class UltimateTeam extends Component {
     constructor(){
         super()
@@ -54,6 +56,44 @@ export class UltimateTeam extends Component {
                 lineup:new_lineupArray,
                 search:[]
             })
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'center-end',
+                showConfirmButton: false,
+                timer: 3000,
+                background:'#171717',
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+
+              })
+              
+            Toast.fire({
+                icon: 'success',
+                title: 'Player Added'
+              })
+        }
+        else{
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'center-end',
+                showConfirmButton: false,
+                timer: 3000,
+                background:'#171717',
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+
+              })
+              
+            Toast.fire({
+                icon: 'error',
+                title: 'Occupied Position'
+              })
         }
     }
 

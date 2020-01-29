@@ -9,7 +9,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-modal": "^3.11.1",
-    "react-scripts": "3.3.0"
+    "react-scripts": "3.3.0",
+    "sweetalert2": "^9.7.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,4 +34,3 @@
     ]
   }
 }
-

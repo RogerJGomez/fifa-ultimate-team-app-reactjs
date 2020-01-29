@@ -18,6 +18,11 @@ body{
   visibility: hidden;
 }
 
+
+#swal2-title{
+  color:#fff
+}
+
 input[type=text]{
   margin-top: 25px;
   background-color: transparent;
@@ -251,6 +256,7 @@ input[type=text]:focus {
     background-repeat: inherit
   }
   .field{
+    margin-top:30px;
     max-width: 400px !important;
     height: 870px;
   }
