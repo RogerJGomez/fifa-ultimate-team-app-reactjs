@@ -2,7 +2,17 @@ import React, { Component } from 'react';
 import Players from '../PlayersData';
 import Bench from './Bench';
 import Lineup from './Lineup';
-import Swal from 'sweetalert2'
+import CustomAlert from 'sweetalert2'
+
+const Toast = CustomAlert.mixin({
+    toast: true,
+    position: 'center-end',
+    showConfirmButton: false,
+    timer: 3000,
+    background:'#171717',
+    timerProgressBar: true
+
+  })
 
 export class UltimateTeam extends Component {
     constructor(){
@@ -17,25 +27,37 @@ export class UltimateTeam extends Component {
         this.searchPlayer = this.searchPlayer.bind(this)
     }
     componentDidMount(){
+
        Players.sort((playerA,playerB) => (playerA.rol<playerB.rol ? -1 : (playerA.rol > playerB.rol) ? 1 : 0))
+
         this.setState({
+
             bench:Players.filter(bench => !bench.lineup),
-            lineup:Players.filter(player => player.lineup),
+            lineup:Players.filter(player => player.lineup)
+
         })
     }
 
     searchPlayer(e){
+
         let search = e.target.value
-        const sanitizedName = search && search.trim().toLowerCase();
-        if (search.length>2){     
+        const trimmedName = search && search.trim().toLowerCase();
+
+        if (search.length>2){  
+
             let searched = this.state.bench.filter(player => {
-                if (player.nombre.toLowerCase().includes(sanitizedName)) return true;
+
+                if (player.nombre.toLowerCase().includes(trimmedName)) return true;
                 return false;
+
             })
+
             this.setState({
                 search:searched
             })
+
         }else{
+
             this.setState({
                 search:[]
             })
@@ -43,53 +65,35 @@ export class UltimateTeam extends Component {
     }
 
     addPlayer(id){
-        let newplayer,currentplayer,new_lineupArray, new_benchArray
-        this.state.bench.filter(player => player.id === id).map(player => newplayer = player)
-        this.state.lineup.filter(player => player.rol === newplayer.rol).map(player => currentplayer = player)
-        if(currentplayer.nombre==="void"){
-            newplayer.lineup=true
-            new_lineupArray = this.state.lineup.filter(player => player.rol!==newplayer.rol)
-            new_lineupArray.push(newplayer)
-            new_benchArray = this.state.bench.filter(player => player.id!==id)
+
+        let benchPlayer = this.state.bench.filter(player => player.id === id)
+
+        let lineupPlayer = this.state.lineup.filter(player => player.rol === benchPlayer[0].rol)
+
+        if(lineupPlayer[0].nombre==="void"){
+
+            lineupPlayer[0].lineup=false
+            benchPlayer[0].lineup=true
+
+            let new_lineupArray = this.state.lineup.filter(player => player.rol!==benchPlayer[0].rol)
+            new_lineupArray.push(benchPlayer[0])
+
+            let new_benchArray = this.state.bench.filter(player => player.id!==id)
+            new_benchArray.push(lineupPlayer[0])
+
             this.setState({
                 bench:new_benchArray,
                 lineup:new_lineupArray,
                 search:[]
             })
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'center-end',
-                showConfirmButton: false,
-                timer: 3000,
-                background:'#171717',
-                timerProgressBar: true,
-                onOpen: (toast) => {
-                  toast.addEventListener('mouseenter', Swal.stopTimer)
-                  toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
 
-              })
-              
             Toast.fire({
                 icon: 'success',
                 title: 'Player Added'
               })
         }
         else{
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'center-end',
-                showConfirmButton: false,
-                timer: 3000,
-                background:'#171717',
-                timerProgressBar: true,
-                onOpen: (toast) => {
-                  toast.addEventListener('mouseenter', Swal.stopTimer)
-                  toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
 
-              })
-              
             Toast.fire({
                 icon: 'error',
                 title: 'Occupied Position'
@@ -98,26 +102,26 @@ export class UltimateTeam extends Component {
     }
 
     deletePlayer(rol){
-        let currentplayer, new_lineupArray, new_benchArray, new_voidPlayer
-        this.state.lineup.filter(player => player.rol === rol).map(player => currentplayer = player)
-        currentplayer.lineup=false
-        new_lineupArray = this.state.lineup.filter(player => player.rol!==rol) 
-        new_voidPlayer = {
-            nombre:'void',
-            id:'_' + Math.random().toString(36).substr(2, 9),
-            posicion:rol,
-            rol:rol,
-            foto:'/players/Field/card.png',
-            lineup:true
-        }
-        new_benchArray = this.state.bench
-        new_benchArray.push(currentplayer)
+
+        let lineupPlayer = this.state.lineup.filter(player => player.rol === rol)
+        lineupPlayer[0].lineup=false
+
+          
+        let voidPlayer = this.state.bench.filter(player => player.rol===rol && player.nombre==="void")
+        voidPlayer[0].lineup=true
+
+        let new_benchArray = this.state.bench.filter(player => player.nombre!=="void") 
+        new_benchArray.push(lineupPlayer[0])
         new_benchArray.sort((playerA,playerB) => (playerA.rol<playerB.rol ? -1 : (playerA.rol > playerB.rol) ? 1 : 0))
-        new_lineupArray.push(new_voidPlayer)
+        
+        let new_lineupArray = this.state.lineup.filter(player => player.rol!==rol) 
+        new_lineupArray.push(voidPlayer[0])
+
         this.setState({
             bench:new_benchArray,
             lineup:new_lineupArray
         })
+
     }
 
     render() {

@@ -63,12 +63,15 @@ export class Player extends Component {
                 </div>
             )
         }
-        return(
-            <div className="players">
-                <img src={this.state.player.foto} alt=""/>
-                <button onClick={()=>{this.props.addPlayer(this.state.player.id)}} className="btn btn-sm btn-success"><i className="fa fa-plus fa-lg"></i></button>
-            </div>
-        )
+        if(this.state.player.nombre!=="void"){
+            return(
+                <div className="players">
+                    <img src={this.state.player.foto} alt=""/>
+                    <button onClick={()=>{this.props.addPlayer(this.state.player.id)}} className="btn btn-sm btn-success"><i className="fa fa-plus fa-lg"></i></button>
+                </div>
+            )
+        }
+        return null
     }
 }
 
