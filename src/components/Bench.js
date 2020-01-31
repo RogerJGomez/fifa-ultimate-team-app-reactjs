@@ -3,13 +3,7 @@ import Player from './Player'
 
 export class Bench extends Component {
 
-    constructor(){
-        super();
-        this.showPlayer = this.showPlayer.bind(this);
-        this.createRows = this.createRows.bind(this);
-    }
-
-    showPlayer(props) {
+    showPlayer = (props) => {
         return (
             this.props.bench
                 .filter(player => player.posicion === props.position)
@@ -17,7 +11,7 @@ export class Bench extends Component {
         )
     }
 
-    createRows() {
+    createRows = () => {
         const positions = ["forward", "midfielder", "defense", "goalkeeper"];
 
         var rows = positions.map(position => {
@@ -43,4 +37,3 @@ export class Bench extends Component {
 }
 
 export default Bench
-

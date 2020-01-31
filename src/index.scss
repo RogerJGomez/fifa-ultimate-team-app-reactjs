@@ -1,0 +1,463 @@
+/*--------GENERAL VARIABLES---------*/
+
+$font-family:'Permanent Marker', cursive ;
+
+$font-color:#fff;
+
+$body-background:url("/players/Field/bg.png") !important;
+
+$header-bg:url('/players/Field/header.png');
+
+$footer-bg:url('/players/Field/footer.png');
+
+$field-background: url("/players/Field/field.png") !important;
+
+$mobile-background :url("/players/Field/mobile.jpg") !important;
+
+$background-size: 100%;
+
+$text-align:center;
+
+$field-fw-md-container-height: 235px;
+
+$field-df-container-height:225px;
+
+$field-gk-container-height: 185px;
+
+$field-card-height:170px;
+
+$field-card-width:120px;
+
+$bench-card-height:185px;
+
+$bench-card-width:130px;
+
+/*--------GENERAL VARIABLES---------*/
+
+/*--------- ANIMATIONS --------*/
+
+@mixin transform($property) {
+
+  transform: $property;
+
+}
+
+@mixin transition($property){
+    transition: $property;
+}
+/*--------- ANIMATIONS --------*/
+
+body{
+
+  font-family: $font-family;
+  color: $font-color;
+
+}
+
+.modal-card, .card-player{
+  cursor: pointer;
+}
+
+.App {
+  overflow-x: hidden !important;
+  background-image: $body-background;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.btn-secondary{
+  visibility: hidden;
+}
+
+
+#swal2-title{
+  color:$font-color
+}
+
+
+.search-box{
+  $padding: 5%;
+  margin-bottom: $padding;
+  padding-top: $padding;
+}
+
+/*-------- MODAL TEXT INPUT STYLE --------*/
+
+input[type=text]{
+  margin-top: 25px;
+  background-color: transparent;
+  border: 2px solid $font-color;
+  color: $font-color;
+}
+
+input[type=text]::placeholder{
+  color: $font-color;
+}
+
+input[type=text]:focus {
+  background-color: transparent;
+  color: $font-color;
+  border: 2px solid $font-color;
+}
+
+/*-------- MODAL TEXT INPUT STYLE --------*/
+
+
+/*--------- BENCH STYLE ---------*/
+
+.contain {
+
+  overflow-x: scroll !important;
+  overflow-y: hidden !important;
+  display: flex;
+  text-align: $text-align;
+  height: 240px;
+
+  img{
+    width: $bench-card-width;
+    height: $bench-card-height;
+  }
+
+  .players{
+    img:hover{
+      @include transform(scale(1.1));
+    }
+
+    img{
+      @include transition(transform .2s);
+    }
+  }
+
+}
+
+.select{
+
+  $overflow:hidden !important;
+  overflow-x: $overflow;
+  overflow-y: $overflow;
+  text-align: $text-align;
+  
+}
+
+/*--------- BENCH STYLE ---------*/
+
+
+
+/*--------- SCROLLBAR STYLE ----------*/
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #8C8C8C; 
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #666666; 
+}
+
+/*--------- SCROLLBAR STYLE ----------*/
+
+
+
+
+/*------- PLAYERS STYLE ----------*/
+
+.players{
+
+  display: inline-block;
+
+  h5{
+    color: $font-color
+  }
+
+}
+
+/*------- PLAYERS STYLE ----------*/
+
+
+
+
+/*----- FIELD STYLE -----*/
+
+.field{
+
+  background-image: $field-background;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: $text-align;
+
+  .fw, .md{
+    text-align: $text-align;
+    height: $field-fw-md-container-height;
+  }
+  
+  .df{
+    text-align: $text-align;
+    height: $field-df-container-height;
+  }
+  
+   .gk{
+    text-align: $text-align;
+    height: $field-gk-container-height;
+  }
+
+  .players{
+    img:hover{
+      @include transform(scale(1.2));
+    }
+
+    img{
+      @include transition(transform .2s);
+    }
+  }
+
+  img {
+    width:$field-card-width;
+    height:$field-card-height;
+  }
+
+}
+
+/*----- FIELD STYLE -----*/
+
+
+
+
+/*-------- HEADER AND FOOTER STYLE -------*/
+
+%shared-style{
+  background-size: $background-size;
+}
+
+.navbar{
+
+  $padding: 1%;
+  padding-top:$padding;
+  padding-bottom:$padding;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.19);
+  background-image: $header-bg;
+  background-position-x: center;
+  @extend %shared-style;
+}
+
+
+.footer{
+
+  $padding : 15px;
+  left: 0;
+  bottom: 0;
+  width:100%;
+  color: $font-color;
+  text-align: $text-align;
+  padding-top:$padding ;
+  padding-bottom:$padding ;
+  background-image: $footer-bg;
+  box-shadow:0px -3px 16px 0px rgba(50, 50, 50, 0.42);
+  background-position: center;
+  @extend %shared-style;
+
+}
+
+/*-------- HEADER AND FOOTER STYLE -------*/
+
+
+
+
+/*-------- MEDIA QUERY STYLES -------*/
+
+
+@media (min-width:768px) and (max-width:1730px){
+
+  $padding: 0px;
+  .col-md-5{
+    padding-right: $padding;
+  }
+  .col-md-7{
+    padding-left: $padding;
+  }
+
+}
+
+
+@media (min-width:1367px) and (max-width:1700px){
+
+  .field{
+
+    .fw{
+      height: 210px;
+    }
+
+    .md, .df{
+      height: 200px;
+    }
+  
+     .gk{
+      height: 160px;
+    }
+
+    img {
+      width:110px;
+      height:150px;
+    }
+
+  } 
+  .contain {
+    height: 220px;
+
+    img{
+      width: 115px;
+      height: 160px;
+    }
+  }
+
+}
+
+@media (min-width:1300px) and (max-width:1700px){
+
+  .field{
+    background-size: $background-size;
+  }
+
+}
+
+@media (min-width:1300px) and (max-width:1366px){
+
+  .field{
+
+    img {
+      width:100px;
+      height:140px;
+    }
+    
+    .fw{
+      height: 200px;
+    }
+  
+    .md, .df{
+      height: 190px;
+    }
+  
+    .gk{
+      height: 150px;
+    }
+  }  
+
+  .contain {
+    
+    height: 210px;
+
+    img{
+      width: 110px;
+      height: 150px;
+    }
+
+  }
+
+}
+
+@media(min-width:1300px){
+
+  .field {
+    .players{
+      padding: 0 4% 0 4%;
+    }
+  }
+
+  .select{
+    padding-right: 2px;
+    padding-top: 4%;
+    padding-bottom: 5%;
+  }
+
+}
+
+@media(min-width:1100px){
+
+  $padding: 7%;
+
+  .field{
+    padding-top: $padding;
+    padding-bottom: $padding;
+  }
+
+}
+
+
+@media(max-width:767px){
+  .App{
+    background-image: $mobile-background;
+    background-repeat: inherit
+  }
+}
+
+
+@media (min-width:600px) and (max-width:767px){
+
+  .field{
+    height: 1000px;
+  }
+
+}
+
+@media(max-width:601px){
+
+
+  .field{
+    height: 940px;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .contain{
+    margin-top: 20px;
+  }
+  .field{
+    margin-top:30px;
+    height: 870px;
+
+    .fw{
+      height: 230px;
+    }
+
+    .md, .df{
+      height: 220px;
+    }
+  
+    .gk{
+      height: 180px;
+    }
+
+    img {
+      width:90px;
+      height:130px;
+    }
+
+  }
+
+  .navbar{
+
+    $padding: 5%;
+    padding-top:$padding;
+    padding-bottom:$padding;
+
+  }
+
+  .navbar{
+
+    .navbar-brand{
+      font-size: 25px !important;
+    }
+    
+  } 
+
+}
+
+/*-------- MEDIA QUERY STYLES -------*/

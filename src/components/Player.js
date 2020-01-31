@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
 export class Player extends Component {
+    
     constructor(){
         super()
         this.state ={
             player:{}
         }
-        this.hover = this.hover.bind(this);
-        this.noHover = this.noHover.bind(this);
+
     }
     componentDidMount(){
         this.setState({
@@ -15,7 +15,8 @@ export class Player extends Component {
         })
     }
 
-    hover(){
+    hover = () =>{
+
         this.setState(prevState => {
             const player = prevState.player
             player.foto="/players/Field/search-card.png"
@@ -24,7 +25,9 @@ export class Player extends Component {
             }
         })
     }
-    noHover(){
+
+    noHover = () =>{
+
         this.setState(prevState => {
             const player = prevState.player
             player.foto="/players/Field/card.png"
@@ -33,6 +36,7 @@ export class Player extends Component {
             }
         })
     }
+
     render() {
         if(this.state.player.lineup){
             if(this.state.player.nombre!=="void"){  

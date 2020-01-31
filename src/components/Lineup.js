@@ -28,12 +28,9 @@ export class Lineup extends Component {
             modalIsOpen:false,
             rol:""
         }
-        this.openModal = this.openModal.bind(this);
-        this.closeModal = this.closeModal.bind(this);
-        this.showPlayers = this.showPlayers.bind(this);
     }
 
-    openModal(rol) {
+    openModal = (rol) => {
         this.setState({
             modalIsOpen: true,
             rol:rol
@@ -41,11 +38,11 @@ export class Lineup extends Component {
       }
      
      
-    closeModal() {
+    closeModal = () =>{
         this.setState({modalIsOpen: false});
       }
 
-    showPlayers(props){
+    showPlayers = (props) =>{
         return (
             this.props.lineup.filter(player => player.rol === props.rol).map(player =>
                 <Player key={player.id} searchPlayer={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />)

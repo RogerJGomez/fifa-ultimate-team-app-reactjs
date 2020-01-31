@@ -15,6 +15,7 @@ const Toast = CustomAlert.mixin({
   })
 
 export class UltimateTeam extends Component {
+
     constructor(){
         super()
         this.state = {
@@ -22,23 +23,19 @@ export class UltimateTeam extends Component {
             lineup:[],
             search:[]
         }
-        this.addPlayer = this.addPlayer.bind(this)
-        this.deletePlayer = this.deletePlayer.bind(this)
-        this.searchPlayer = this.searchPlayer.bind(this)
     }
+
     componentDidMount(){
 
        Players.sort((playerA,playerB) => (playerA.rol<playerB.rol ? -1 : (playerA.rol > playerB.rol) ? 1 : 0))
 
         this.setState({
-
             bench:Players.filter(bench => !bench.lineup),
             lineup:Players.filter(player => player.lineup)
-
         })
     }
 
-    searchPlayer(e){
+    searchPlayer = (e) =>{
 
         let search = e.target.value
         const trimmedName = search && search.trim().toLowerCase();
@@ -64,7 +61,7 @@ export class UltimateTeam extends Component {
         }
     }
 
-    addPlayer(id){
+    addPlayer = (id) =>{
 
         let benchPlayer = this.state.bench.filter(player => player.id === id)
 
@@ -101,7 +98,7 @@ export class UltimateTeam extends Component {
         }
     }
 
-    deletePlayer(rol){
+    deletePlayer = (rol) =>{
 
         let lineupPlayer = this.state.lineup.filter(player => player.rol === rol)
         lineupPlayer[0].lineup=false
