@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Player from './Player';
 import Modal from 'react-modal';
+
 const customStyles = {
     content : {
       top:'50%',
@@ -19,8 +20,10 @@ const customStyles = {
     overlay:{
         background: 'radial-gradient(circle, rgba(113,113,113,0.7847514005602241) 0%, rgba(0,0,0,0.7511379551820728) 0%)'
     }
-  };
+  }
+
 Modal.setAppElement('#root')
+
 export class Lineup extends Component {
     constructor(){
         super()
@@ -43,17 +46,23 @@ export class Lineup extends Component {
       }
 
     showPlayers = (props) =>{
+
         return (
             this.props.lineup.filter(player => player.rol === props.rol).map(player =>
                 <Player key={player.id} searchPlayer={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />)
         )
+
     }
 
 
     render() {
+
         return (
+
             <div className="col-md-7">
+
                 <div className="field">
+
                     <Modal
                         isOpen={this.state.modalIsOpen}
                         onRequestClose={this.closeModal}
@@ -74,27 +83,42 @@ export class Lineup extends Component {
                     </Modal>
 
                     <div className="fw">
+
                         <this.showPlayers rol={"lw"} />
                         <this.showPlayers rol={"st"} />
                         <this.showPlayers rol={"rw"} />
+
                     </div>
+
                     <div className="md">
+
                         <this.showPlayers rol={"lcm"} />
                         <this.showPlayers rol={"cm"} />
                         <this.showPlayers rol={"rcm"} />
+
                     </div>
+
                     <div className="df">
+
                         <this.showPlayers rol={"lb"} />
                         <this.showPlayers rol={"lcb"} />
                         <this.showPlayers rol={"rcb"} />
                         <this.showPlayers rol={"rb"} />
+
                     </div>
+
                     <div className="gk">
+
                         <this.showPlayers rol={"gk"} />
+
                     </div>
+
                 </div>
+
             </div>
+
         )
+
     }
 }
 

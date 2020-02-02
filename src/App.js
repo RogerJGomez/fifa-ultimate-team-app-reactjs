@@ -3,7 +3,7 @@ import UltimateTeam from './components/UltimateTeam';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer'
 
-function App() {
+export default function App(){
   return (
     <div className="App">
         <Navbar />
@@ -13,4 +13,4 @@ function App() {
   );
 }
 
-export default App;
+

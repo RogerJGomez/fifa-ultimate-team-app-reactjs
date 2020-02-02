@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Navbar() {
+  const Navbar = () => {
 
     const header ={
         display:"table",
@@ -13,3 +13,6 @@ export default function Navbar() {
         </nav>
     )
 }
+
+
+export default Navbar
