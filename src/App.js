@@ -3,7 +3,7 @@ import UltimateTeam from './components/UltimateTeam';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer'
 
-export default function App(){
+ const App = () =>{
   return (
     <div className="App">
         <Navbar />
@@ -14,3 +14,4 @@ export default function App(){
 }
 
 
+export default App
