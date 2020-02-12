@@ -397,90 +397,90 @@ var Players =[
     },
     {
         nombre:'void',
-        id:47,
         posicion:'forward',
         rol:'lw',
         foto:'/players/Field/card.png',
+        id:47,
         lineup:true
     },
     {
         nombre:'void',
-        id:48,
         posicion:'forward',
         rol:'st',
         foto:'/players/Field/card.png',
+        id:48,
         lineup:true
     },
     {
         nombre:'void',
-        id:49,
         posicion:'forward',
         rol:'rw',
         foto:'/players/Field/card.png',
+        id:49,
         lineup:true
     },
     {
         nombre:'void',
-        id:50,
         posicion:'midfielder',
         rol:'lcm',
         foto:'/players/Field/card.png',
+        id:50,
         lineup:true
     },
     {
         nombre:'void',
-        id:51,
         posicion:'midfielder',
         rol:'cm',
         foto:'/players/Field/card.png',
+        id:51,
         lineup:true
     },
     {
         nombre:'void',
-        id:55,
         posicion:'midfielder',
         rol:'rcm',
         foto:'/players/Field/card.png',
+        id:52,
         lineup:true
     },
     {
         nombre:'void',
-        id:52,
         posicion:'defense',
         rol:'lb',
         foto:'/players/Field/card.png',
+        id:53,
         lineup:true
     },
     {
         nombre:'void',
-        id:53,
         posicion:'defense',
         rol:'lcb',
         foto:'/players/Field/card.png',
+        id:54,
         lineup:true
     },
     {
         nombre:'void',
-        id:54,
         posicion:'defense',
         rol:'rcb',
         foto:'/players/Field/card.png',
+        id:55,
         lineup:true
     },
     {
         nombre:'void',
-        id:55,
         posicion:'defense',
         rol:'rb',
         foto:'/players/Field/card.png',
+        id:56,
         lineup:true
     },
     {
         nombre:'void',
-        id:56,
         posicion:'goalkeeper',
         rol:'gk',
         foto:'/players/Field/card.png',
+        id:57,
         lineup:true
     
     }

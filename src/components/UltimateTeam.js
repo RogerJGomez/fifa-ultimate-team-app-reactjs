@@ -67,7 +67,7 @@ export class UltimateTeam extends Component {
 
         let lineupPlayer = this.state.lineup.filter(player => player.rol === benchPlayer[0].rol)
 
-        if(lineupPlayer[0].nombre==="void"){
+        if(lineupPlayer[0].nombre==='void'){
 
             lineupPlayer[0].lineup=false
             benchPlayer[0].lineup=true
@@ -104,10 +104,10 @@ export class UltimateTeam extends Component {
         lineupPlayer[0].lineup=false
 
           
-        let voidPlayer = this.state.bench.filter(player => player.rol===rol && player.nombre==="void")
+        let voidPlayer = this.state.bench.filter(player => player.rol===rol && player.nombre==='void')
         voidPlayer[0].lineup=true
 
-        let new_benchArray = this.state.bench.filter(player => player.nombre!=="void") 
+        let new_benchArray = this.state.bench.filter(player =>player.id!==voidPlayer[0].id) 
         new_benchArray.push(lineupPlayer[0])
         new_benchArray.sort((playerA,playerB) => (playerA.rol<playerB.rol ? -1 : (playerA.rol > playerB.rol) ? 1 : 0))
         
