@@ -29,9 +29,14 @@ export class UltimateTeam extends Component {
 
        Players.sort((playerA,playerB) => (playerA.rol<playerB.rol ? -1 : (playerA.rol > playerB.rol) ? 1 : 0))
 
+        let bench = [...Players]
+        bench = bench.filter(bench => !bench.lineup)
+        let lineup = [...Players]
+        lineup = lineup.filter(player => player.lineup)
+
         this.setState({
-            bench:Players.filter(bench => !bench.lineup),
-            lineup:Players.filter(player => player.lineup)
+            bench,
+            lineup
         })
     }
 
@@ -42,7 +47,8 @@ export class UltimateTeam extends Component {
 
         if (search.length>2){  
 
-            let searched = this.state.bench.filter(player => {
+            let searched = [...this.state.bench]
+            searched  = searched.filter(player => {
 
                 if (player.nombre.toLowerCase().includes(trimmedName)) return true;
                 return false;
@@ -63,24 +69,26 @@ export class UltimateTeam extends Component {
 
     addPlayer = (id) =>{
 
-        let benchPlayer = this.state.bench.filter(player => player.id === id)
+        let bench = [...this.state.bench]
+        let  benchPlayer = bench.find(player => player.id === id)
 
-        let lineupPlayer = this.state.lineup.filter(player => player.rol === benchPlayer[0].rol)
+        let lineup = [...this.state.lineup]
+        let lineupPlayer = lineup.find(player => player.rol === benchPlayer.rol)
 
-        if(lineupPlayer[0].nombre==='void'){
+        if(lineupPlayer.nombre==='void'){
 
-            lineupPlayer[0].lineup=false
-            benchPlayer[0].lineup=true
+            lineupPlayer.lineup = false
+            benchPlayer.lineup = true
 
-            let new_lineupArray = this.state.lineup.filter(player => player.rol!==benchPlayer[0].rol)
-            new_lineupArray.push(benchPlayer[0])
+            lineup  = lineup.filter(player => player.rol !== benchPlayer.rol)
+            lineup.push(benchPlayer)
 
-            let new_benchArray = this.state.bench.filter(player => player.id!==id)
-            new_benchArray.push(lineupPlayer[0])
+            bench = bench.filter(player => player.id !== id)
+            bench.push(lineupPlayer)
 
             this.setState({
-                bench:new_benchArray,
-                lineup:new_lineupArray,
+                bench,
+                lineup,
                 search:[]
             })
 
@@ -100,23 +108,25 @@ export class UltimateTeam extends Component {
 
     deletePlayer = (rol) =>{
 
-        let lineupPlayer = this.state.lineup.filter(player => player.rol === rol)
-        lineupPlayer[0].lineup=false
+        let bench = [...this.state.bench]
+        let voidPlayer = bench.find(player => player.rol === rol && player.nombre==="void")
+ 
+        let lineup = [...this.state.lineup]
+        let lineupPlayer = lineup.find(player => player.rol === rol)
 
-          
-        let voidPlayer = this.state.bench.filter(player => player.rol===rol && player.nombre==='void')
-        voidPlayer[0].lineup=true
+        lineupPlayer.lineup = false
+        voidPlayer.lineup = true
 
-        let new_benchArray = this.state.bench.filter(player =>player.id!==voidPlayer[0].id) 
-        new_benchArray.push(lineupPlayer[0])
-        new_benchArray.sort((playerA,playerB) => (playerA.rol<playerB.rol ? -1 : (playerA.rol > playerB.rol) ? 1 : 0))
+        bench = bench.filter(player => player.id !== voidPlayer.id) 
+        bench.push(lineupPlayer)
+        bench.sort((playerA,playerB) => (playerA.rol<playerB.rol ? -1 : (playerA.rol > playerB.rol) ? 1 : 0))
         
-        let new_lineupArray = this.state.lineup.filter(player => player.rol!==rol) 
-        new_lineupArray.push(voidPlayer[0])
+        lineup = lineup.filter(player => player.rol !== rol) 
+        lineup.push(voidPlayer)
 
         this.setState({
-            bench:new_benchArray,
-            lineup:new_lineupArray
+            bench,
+            lineup
         })
 
     }
