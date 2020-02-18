@@ -10,7 +10,7 @@ $header-bg:url('/players/Field/header.png');
 
 $footer-bg:url('/players/Field/footer.png');
 
-$field-background: url("/players/Field/field.png") !important;
+$field-background: url("/players/Field/field.png")  !important;
 
 $mobile-background :url("/players/Field/mobile.jpg") !important;
 
@@ -58,13 +58,14 @@ body{
   cursor: pointer;
 }
 
-.App {
+.App{
   overflow-x: hidden !important;
-  background-image: $body-background;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
+.row{
+  background-image: $body-background;
+  background-size: 100vw 100vw;
+}
 
 .btn-secondary{
   visibility: hidden;
@@ -389,14 +390,6 @@ input[type=text]:focus {
 }
 
 
-@media(max-width:767px){
-  .App{
-    background-image: $mobile-background;
-    background-repeat: inherit
-  }
-}
-
-
 @media (min-width:600px) and (max-width:767px){
 
   .field{
@@ -415,7 +408,12 @@ input[type=text]:focus {
 }
 
 @media(max-width:480px){
-
+  .row{
+    background: $mobile-background;
+    background-position: center auto;
+    background-repeat: no-repeat !important;
+    background-size: 100%  100%!important;
+  }
   .contain{
     margin-top: 20px;
   }

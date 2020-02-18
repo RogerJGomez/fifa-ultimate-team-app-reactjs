@@ -27,8 +27,7 @@ export class UltimateTeam extends Component {
 
     componentDidMount(){
 
-       Players.sort((playerA,playerB) => (playerA.rol<playerB.rol ? -1 : (playerA.rol > playerB.rol) ? 1 : 0))
-
+        Players.sort((playerA,playerB) => (playerA.rol<playerB.rol ? -1 : (playerA.rol > playerB.rol) ? 1 : 0))
         let bench = [...Players]
         bench = bench.filter(bench => !bench.lineup)
         let lineup = [...Players]
@@ -38,6 +37,7 @@ export class UltimateTeam extends Component {
             bench,
             lineup
         })
+
     }
 
     searchPlayer = (e) =>{
@@ -68,6 +68,8 @@ export class UltimateTeam extends Component {
     }
 
     addPlayer = (id) =>{
+
+        localStorage.clear()
 
         let bench = [...this.state.bench]
         let  benchPlayer = bench.find(player => player.id === id)

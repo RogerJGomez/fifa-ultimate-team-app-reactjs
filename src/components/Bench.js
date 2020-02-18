@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Player from './Player'
 
-export class Bench extends Component {
+class Bench extends Component {
 
     showPlayer = (props) => {
         return (
