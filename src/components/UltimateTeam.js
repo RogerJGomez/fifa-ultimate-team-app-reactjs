@@ -21,22 +21,40 @@ export class UltimateTeam extends Component {
         this.state = {
             bench:[],
             lineup:[],
-            search:[]
+            search:[],
+            store:false
         }
     }
 
     componentDidMount(){
 
-        Players.sort((playerA,playerB) => (playerA.rol<playerB.rol ? -1 : (playerA.rol > playerB.rol) ? 1 : 0))
-        let bench = [...Players]
-        bench = bench.filter(bench => !bench.lineup)
-        let lineup = [...Players]
-        lineup = lineup.filter(player => player.lineup)
+        let localStore = JSON.parse(localStorage.getItem('store'))
+        let storeBench =  JSON.parse(localStorage.getItem('bench'))
+        let storeLineup = JSON.parse(localStorage.getItem('lineup'))
 
-        this.setState({
-            bench,
-            lineup
-        })
+        if(localStore){
+
+            this.setState({
+                bench:storeBench,
+                lineup:storeLineup,
+                store:storeLineup
+            })
+
+        }
+        else{
+
+            Players.sort((playerA,playerB) => (playerA.rol<playerB.rol ? -1 : (playerA.rol > playerB.rol) ? 1 : 0))
+            let bench = [...Players]
+            bench = bench.filter(bench => !bench.lineup)
+            let lineup = [...Players]
+            lineup = lineup.filter(player => player.lineup)
+
+            this.setState({
+                bench,
+                lineup
+            })
+            
+        }
 
     }
 
@@ -67,14 +85,15 @@ export class UltimateTeam extends Component {
         }
     }
 
+
     addPlayer = (id) =>{
 
         localStorage.clear()
 
-        let bench = [...this.state.bench]
+        let bench = JSON.parse(JSON.stringify(this.state.bench))
         let  benchPlayer = bench.find(player => player.id === id)
 
-        let lineup = [...this.state.lineup]
+        let lineup = JSON.parse(JSON.stringify(this.state.lineup))
         let lineupPlayer = lineup.find(player => player.rol === benchPlayer.rol)
 
         if(lineupPlayer.nombre==='void'){
@@ -91,7 +110,8 @@ export class UltimateTeam extends Component {
             this.setState({
                 bench,
                 lineup,
-                search:[]
+                search:[],
+                store: true
             })
 
             Toast.fire({
@@ -110,10 +130,10 @@ export class UltimateTeam extends Component {
 
     deletePlayer = (rol) =>{
 
-        let bench = [...this.state.bench]
+        let bench = JSON.parse(JSON.stringify(this.state.bench))
         let voidPlayer = bench.find(player => player.rol === rol && player.nombre==="void")
  
-        let lineup = [...this.state.lineup]
+        let lineup = JSON.parse(JSON.stringify(this.state.lineup))
         let lineupPlayer = lineup.find(player => player.rol === rol)
 
         lineupPlayer.lineup = false
@@ -128,9 +148,24 @@ export class UltimateTeam extends Component {
 
         this.setState({
             bench,
-            lineup
+            lineup,
+            store: true
         })
 
+        localStorage.setItem('state', this.state)
+    }
+
+    componentDidUpdate(prevState){
+
+        if(prevState !== this.state){
+
+            localStorage.setItem('bench', JSON.stringify(this.state.bench))
+
+            localStorage.setItem('lineup', JSON.stringify(this.state.lineup))
+
+            localStorage.setItem('store', JSON.stringify(this.state.store))
+
+        }
     }
 
     render() {

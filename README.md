@@ -1,4 +1,4 @@
-## Futhead App
+## FIFA Ultimate Team App
 * [Setup](#setup) 
 * [General info](#general-info)
 * [Technologies](#technologies)
