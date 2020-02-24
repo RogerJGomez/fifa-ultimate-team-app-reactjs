@@ -14,23 +14,21 @@ $field-background: url("/players/Field/field.png")  !important;
 
 $mobile-background :url("/players/Field/mobile.jpg") !important;
 
-$background-size: 100%;
-
 $text-align:center;
 
-$field-fw-md-container-height: 235px;
+$field-fw-md-container-height: 25vh;
 
-$field-df-container-height:225px;
+$field-df-container-height:22vh;
 
-$field-gk-container-height: 185px;
+$field-gk-container-height: 18vh;
 
-$field-card-height:170px;
+$field-card-height:17vh;
 
-$field-card-width:120px;
+$field-card-width:12vh;
 
-$bench-card-height:185px;
+$bench-card-height:18vh;
 
-$bench-card-width:130px;
+$bench-card-width:13vh;
 
 /*--------GENERAL VARIABLES---------*/
 
@@ -64,7 +62,8 @@ body{
 
 .row{
   background-image: $body-background;
-  background-size: 100vw 100vw;
+  background-size: 102vw 100vw;
+  background-repeat: no-repeat;
 }
 
 .btn-secondary{
@@ -106,14 +105,18 @@ input[type=text]:focus {
 
 
 /*--------- BENCH STYLE ---------*/
-
+.col-md-5{
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
 .contain {
 
   overflow-x: scroll !important;
   overflow-y: hidden !important;
   display: flex;
   text-align: $text-align;
-  height: 240px;
+  height: 25vh;
+  margin-bottom: 2vh;
 
   img{
     width: $bench-card-width;
@@ -148,7 +151,7 @@ input[type=text]:focus {
 /*--------- SCROLLBAR STYLE ----------*/
 
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 0.5vw;
 }
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey; 
@@ -186,12 +189,20 @@ input[type=text]:focus {
 
 /*----- FIELD STYLE -----*/
 
-.field{
+.col-md-7{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:0 !important;
+}
 
+.field{
   background-image: $field-background;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
+  background-size: 58vw 100%;
   text-align: $text-align;
+  width: 100vw;
 
   .fw, .md{
     text-align: $text-align;
@@ -209,6 +220,8 @@ input[type=text]:focus {
   }
 
   .players{
+    margin-right: 2.5vw;
+    margin-left: 2.5vw;
     img:hover{
       @include transform(scale(1.2));
     }
@@ -233,7 +246,7 @@ input[type=text]:focus {
 /*-------- HEADER AND FOOTER STYLE -------*/
 
 %shared-style{
-  background-size: $background-size;
+  background-size: 100vw 10vh;
 }
 
 .navbar{
@@ -270,185 +283,57 @@ input[type=text]:focus {
 
 
 
-/*-------- MEDIA QUERY STYLES -------*/
+/*-------- MEDIA QUERY STYLES .......*/ 
 
-
-@media (min-width:768px) and (max-width:1730px){
-
-  $padding: 0px;
-  .col-md-5{
-    padding-right: $padding;
-  }
-  .col-md-7{
-    padding-left: $padding;
-  }
-
-}
-
-
-@media (min-width:1367px) and (max-width:1700px){
-
-  .field{
-
-    .fw{
-      height: 210px;
-    }
-
-    .md, .df{
-      height: 200px;
-    }
-  
-     .gk{
-      height: 160px;
-    }
-
-    img {
-      width:110px;
-      height:150px;
-    }
-
-  } 
-  .contain {
-    height: 220px;
-
-    img{
-      width: 115px;
-      height: 160px;
-    }
-  }
-
-}
-
-@media (min-width:1300px) and (max-width:1700px){
-
-  .field{
-    background-size: $background-size;
-  }
-
-}
-
-@media (min-width:1300px) and (max-width:1366px){
-
-  .field{
-
-    img {
-      width:100px;
-      height:140px;
-    }
-    
-    .fw{
-      height: 200px;
-    }
-  
-    .md, .df{
-      height: 190px;
-    }
-  
-    .gk{
-      height: 150px;
-    }
-  }  
-
-  .contain {
-    
-    height: 210px;
-
-    img{
-      width: 110px;
-      height: 150px;
-    }
-
-  }
-
-}
-
-@media(min-width:1300px){
-
-  .field {
-    .players{
-      padding: 0 4% 0 4%;
-    }
-  }
-
-  .select{
-    padding-right: 2px;
-    padding-top: 4%;
-    padding-bottom: 5%;
-  }
-
-}
-
-@media(min-width:1100px){
-
-  $padding: 7%;
-
-  .field{
-    padding-top: $padding;
-    padding-bottom: $padding;
-  }
-
-}
-
-
-@media (min-width:600px) and (max-width:767px){
-
-  .field{
-    height: 1000px;
-  }
-
-}
-
-@media(max-width:601px){
-
-
-  .field{
-    height: 940px;
-  }
-
-}
 
 @media(max-width:480px){
+
   .row{
     background: $mobile-background;
     background-position: center auto;
     background-repeat: no-repeat !important;
-    background-size: 100%  100%!important;
+    background-size: 100% 100%!important;
   }
-  .contain{
-    margin-top: 20px;
+
+  .search-box{
+
+      height: 30vh;
+
+      img{
+        height: 26vh;
+        width: 18vh;
+      }
   }
+  
   .field{
-    margin-top:30px;
-    height: 870px;
+      
+      width: 100vh !important;
+      background-size: 150vw 100vh;
+      margin: 7vh auto;
+
 
     .fw{
-      height: 230px;
+      height: 30vh;
     }
 
     .md, .df{
-      height: 220px;
+      height: 25vh;
     }
   
     .gk{
-      height: 180px;
+      height: 20vh;
     }
 
     img {
-      width:90px;
-      height:130px;
+      width:22vw;
+      height:16vh;
     }
 
   }
 
   .navbar{
-
-    $padding: 5%;
-    padding-top:$padding;
-    padding-bottom:$padding;
-
-  }
-
-  .navbar{
+  
+    height: 10vh;
 
     .navbar-brand{
       font-size: 25px !important;
@@ -457,5 +342,3 @@ input[type=text]:focus {
   } 
 
 }
-
-/*-------- MEDIA QUERY STYLES -------*/
