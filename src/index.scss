@@ -16,19 +16,19 @@ $mobile-background :url("/players/Field/mobile.jpg") !important;
 
 $text-align:center;
 
-$field-fw-md-container-height: 25vh;
+$field-fw-md-container-height: 26vh;
 
-$field-df-container-height:22vh;
+$field-df-container-height:23vh;
 
-$field-gk-container-height: 18vh;
+$field-gk-container-height: 19vh;
 
-$field-card-height:17vh;
+$field-card-height:18vh;
 
-$field-card-width:12vh;
+$field-card-width:13vh;
 
-$bench-card-height:18vh;
+$bench-card-height:19vh;
 
-$bench-card-width:13vh;
+$bench-card-width:14vh;
 
 /*--------GENERAL VARIABLES---------*/
 
@@ -115,8 +115,8 @@ input[type=text]:focus {
   overflow-y: hidden !important;
   display: flex;
   text-align: $text-align;
-  height: 25vh;
-  margin-bottom: 2vh;
+  height: 26vh;
+  margin-bottom:1vh;
 
   img{
     width: $bench-card-width;
