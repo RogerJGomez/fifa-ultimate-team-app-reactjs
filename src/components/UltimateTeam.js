@@ -88,8 +88,6 @@ export class UltimateTeam extends Component {
 
     addPlayer = (id) =>{
 
-        localStorage.clear()
-
         let bench = JSON.parse(JSON.stringify(this.state.bench))
         let  benchPlayer = bench.find(player => player.id === id)
 
@@ -151,8 +149,7 @@ export class UltimateTeam extends Component {
             lineup,
             store: true
         })
-
-        localStorage.setItem('state', this.state)
+        
     }
 
     componentDidUpdate(prevState){
