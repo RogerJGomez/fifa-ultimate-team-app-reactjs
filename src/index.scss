@@ -46,9 +46,15 @@ $bench-card-width:14vh;
     transition: $property;
 }
 /*--------- ANIMATIONS --------*/
+.navbar-brand {
+  color:$font-color
+}
+
+.link:hover{
+  color: grey;
+}
 
 body{
-
   font-family: $font-family;
   color: $font-color;
 
