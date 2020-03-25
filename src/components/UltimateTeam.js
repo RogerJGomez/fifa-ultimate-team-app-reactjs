@@ -16,15 +16,12 @@ const Toast = CustomAlert.mixin({
 
 export class UltimateTeam extends Component {
 
-    constructor(){
-        super()
-        this.state = {
+        state = {
             bench:[],
             lineup:[],
             search:[],
             store:false
         }
-    }
 
     componentDidMount(){
 
