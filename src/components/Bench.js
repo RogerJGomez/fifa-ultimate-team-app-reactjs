@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Player from './Player'
 
-class Bench extends Component {
+const Bench = ({bench, addPlayer}) => {
 
-    showPlayer = (props) => {
+    const ShowPlayer = (props) => {
         return (
-            this.props.bench
+                bench
                 .filter(player => player.posicion === props.position)
-                .map(player => <Player key={player.id} addPlayer={this.props.addPlayer}  players={player} />)
+                .map(player => <Player key={player.id} addPlayer={addPlayer}  players={player} />)
         )
     }
 
-    createRows = () => {
+    const CreateRows = () => {
         const positions = ["forward", "midfielder", "defense", "goalkeeper"];
 
-        var rows = positions.map(position => {
+        let rows = positions.map(position => {
             return(
                 <div className="contain" key={position}>
-                    <this.showPlayer position={position} />
+                    <ShowPlayer position={position} />
                 </div>
                 )
         });
@@ -25,15 +25,13 @@ class Bench extends Component {
         return rows
     }
 
-    render() {
-        return (
-            <div className="col-md-5">
-                <div className="select">
-                    <this.createRows/>
-                </div>
+    return (
+        <div className="col-md-5">
+            <div className="select">
+                <CreateRows/>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default Bench

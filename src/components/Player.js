@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
 
 export class Player extends Component {
-    
-    constructor(){
-        super()
-        this.state ={
-            player:{}
-        }
 
+    state = {
+        player:{}
     }
+
 
     componentDidMount(){
 

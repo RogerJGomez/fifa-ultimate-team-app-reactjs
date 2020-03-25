@@ -25,13 +25,12 @@ const customStyles = {
 Modal.setAppElement('#root')
 
 export class Lineup extends Component {
-    constructor(){
-        super()
-        this.state = {
+
+        state = {
             modalIsOpen:false,
             rol:""
         }
-    }
+
 
     openModal = (rol) => {
         this.setState({
@@ -45,10 +44,10 @@ export class Lineup extends Component {
         this.setState({modalIsOpen: false});
       }
 
-    showPlayers = (props) =>{
+    showPlayers = ({rol}) =>{
 
         return (
-            this.props.lineup.filter(player => player.rol === props.rol).map(player =>
+            this.props.lineup.filter(player => player.rol === rol).map(player =>
                 <Player key={player.id} searchPlayer={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />)
         )
 
