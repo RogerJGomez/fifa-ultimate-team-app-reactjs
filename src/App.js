@@ -1,6 +1,6 @@
-import React from 'react';
-import UltimateTeam from './components/UltimateTeam';
-import Navbar from './components/Navbar';
+import React from 'react'
+import UltimateTeam from './components/UltimateTeam'
+import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
  const App = () =>{

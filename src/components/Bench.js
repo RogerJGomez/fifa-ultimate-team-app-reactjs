@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Player from './Player'
 
 const Bench = ({bench, addPlayer}) => {
@@ -12,7 +12,7 @@ const Bench = ({bench, addPlayer}) => {
     }
 
     const CreateRows = () => {
-        const positions = ["forward", "midfielder", "defense", "goalkeeper"];
+        const positions = ["forward", "midfielder", "defense", "goalkeeper"]
 
         let rows = positions.map(position => {
             return(

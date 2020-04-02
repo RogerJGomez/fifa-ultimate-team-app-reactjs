@@ -30,16 +30,13 @@ export class UltimateTeam extends Component {
         let storeLineup = JSON.parse(localStorage.getItem('lineup'))
 
         if(localStore){
-
             this.setState({
                 bench:storeBench,
                 lineup:storeLineup,
                 store:storeLineup
             })
-
         }
         else{
-
             Players.sort((playerA,playerB) => (playerA.rol<playerB.rol ? -1 : (playerA.rol > playerB.rol) ? 1 : 0))
             let bench = [...Players]
             bench = bench.filter(bench => !bench.lineup)
@@ -50,7 +47,6 @@ export class UltimateTeam extends Component {
                 bench,
                 lineup
             })
-            
         }
 
     }
@@ -61,21 +57,17 @@ export class UltimateTeam extends Component {
         const trimmedName = search && search.trim().toLowerCase();
 
         if (search.length>2){  
-
             let searched = [...this.state.bench]
             searched  = searched.filter(player => {
-
                 if (player.nombre.toLowerCase().includes(trimmedName)) return true;
                 return false;
-
             })
 
             this.setState({
                 search:searched
             })
-
-        }else{
-
+        }
+        else{
             this.setState({
                 search:[]
             })
@@ -92,7 +84,6 @@ export class UltimateTeam extends Component {
         let lineupPlayer = lineup.find(player => player.rol === benchPlayer.rol)
 
         if(lineupPlayer.nombre==='void'){
-
             lineupPlayer.lineup = false
             benchPlayer.lineup = true
 
@@ -108,14 +99,12 @@ export class UltimateTeam extends Component {
                 search:[],
                 store: true
             })
-
             Toast.fire({
                 icon: 'success',
                 title: 'Player Added'
-              })
+            })
         }
         else{
-
             Toast.fire({
                 icon: 'error',
                 title: 'Occupied Position'
@@ -152,13 +141,9 @@ export class UltimateTeam extends Component {
     componentDidUpdate(prevState){
 
         if(prevState !== this.state){
-
             localStorage.setItem('bench', JSON.stringify(this.state.bench))
-
             localStorage.setItem('lineup', JSON.stringify(this.state.lineup))
-
             localStorage.setItem('store', JSON.stringify(this.state.store))
-
         }
     }
 

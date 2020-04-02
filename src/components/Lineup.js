@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Player from './Player';
-import Modal from 'react-modal';
+import React, { Component } from 'react'
+import Player from './Player'
+import Modal from 'react-modal'
 
 const customStyles = {
     content : {
@@ -26,42 +26,36 @@ Modal.setAppElement('#root')
 
 export class Lineup extends Component {
 
-        state = {
-            modalIsOpen:false,
-            rol:""
-        }
-
+    state = {
+        modalIsOpen:false,
+        rol:""
+    }
 
     openModal = (rol) => {
         this.setState({
             modalIsOpen: true,
             rol:rol
         });
-      }
-     
+    }
      
     closeModal = () =>{
         this.setState({modalIsOpen: false});
-      }
+    }
 
     showPlayers = ({rol}) =>{
-
         return (
             this.props.lineup.filter(player => player.rol === rol).map(player =>
-                <Player key={player.id} searchPlayer={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />)
+            <Player key={player.id} searchPlayer={this.openModal} deletePlayer={this.props.deletePlayer}  players={player} />)
         )
-
     }
 
 
     render() {
-
         return (
 
             <div className="col-md-7">
 
                 <div className="field">
-
                     <Modal
                         isOpen={this.state.modalIsOpen}
                         onRequestClose={this.closeModal}
@@ -82,42 +76,32 @@ export class Lineup extends Component {
                     </Modal>
 
                     <div className="fw">
-
                         <this.showPlayers rol={"lw"} />
                         <this.showPlayers rol={"st"} />
                         <this.showPlayers rol={"rw"} />
-
                     </div>
 
                     <div className="md">
-
                         <this.showPlayers rol={"lcm"} />
                         <this.showPlayers rol={"cm"} />
                         <this.showPlayers rol={"rcm"} />
-
                     </div>
 
                     <div className="df">
-
                         <this.showPlayers rol={"lb"} />
                         <this.showPlayers rol={"lcb"} />
                         <this.showPlayers rol={"rcb"} />
                         <this.showPlayers rol={"rb"} />
-
                     </div>
 
                     <div className="gk">
-
                         <this.showPlayers rol={"gk"} />
-
                     </div>
-
                 </div>
 
             </div>
 
         )
-
     }
 }
 
