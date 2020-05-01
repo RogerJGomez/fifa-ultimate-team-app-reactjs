@@ -25,7 +25,6 @@ const customStyles = {
 Modal.setAppElement('#root')
 
 export class Lineup extends Component {
-
     state = {
         modalIsOpen:false,
         rol:""
@@ -49,12 +48,9 @@ export class Lineup extends Component {
         )
     }
 
-
     render() {
         return (
-
             <div className="col-md-7">
-
                 <div className="field">
                     <Modal
                         isOpen={this.state.modalIsOpen}
@@ -74,33 +70,27 @@ export class Lineup extends Component {
                         <button className="btn btn-dark" onClick={this.closeModal}>Close</button>
                     </div>
                     </Modal>
-
                     <div className="fw">
                         <this.showPlayers rol={"lw"} />
                         <this.showPlayers rol={"st"} />
                         <this.showPlayers rol={"rw"} />
                     </div>
-
                     <div className="md">
                         <this.showPlayers rol={"lcm"} />
                         <this.showPlayers rol={"cm"} />
                         <this.showPlayers rol={"rcm"} />
                     </div>
-
                     <div className="df">
                         <this.showPlayers rol={"lb"} />
                         <this.showPlayers rol={"lcb"} />
                         <this.showPlayers rol={"rcb"} />
                         <this.showPlayers rol={"rb"} />
                     </div>
-
                     <div className="gk">
                         <this.showPlayers rol={"gk"} />
                     </div>
                 </div>
-
             </div>
-
         )
     }
 }

@@ -2,7 +2,6 @@ import React from 'react'
 import Player from './Player'
 
 const Bench = ({bench, addPlayer}) => {
-
     const ShowPlayer = (props) => {
         return (
                 bench
@@ -13,7 +12,6 @@ const Bench = ({bench, addPlayer}) => {
 
     const CreateRows = () => {
         const positions = ["forward", "midfielder", "defense", "goalkeeper"]
-
         let rows = positions.map(position => {
             return(
                 <div className="contain" key={position}>
@@ -21,10 +19,8 @@ const Bench = ({bench, addPlayer}) => {
                 </div>
                 )
         });
-
         return rows
     }
-
     return (
         <div className="col-md-5">
             <div className="select">

@@ -1,7 +1,6 @@
 import React from 'react'
 
-  const Navbar = () => {
-
+const Navbar = () => {
     const header ={
         display:"table",
         margin:"0 auto",
