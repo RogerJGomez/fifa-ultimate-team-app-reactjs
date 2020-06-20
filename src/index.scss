@@ -1,90 +1,86 @@
 /*--------GENERAL VARIABLES---------*/
 
-$font-family:'Permanent Marker', cursive ;
+$font-family: "Permanent Marker", cursive;
 
-$font-color:#fff;
+$font-color: #fff;
 
-$body-background:url("/players/Field/bg.jpg") !important;
+$body-background: url("/players/Field/bg.jpg") !important;
 
-$header-bg:url('/players/Field/header.png');
+$header-bg: url("/players/Field/header.png");
 
-$footer-bg:url('/players/Field/footer.png');
+$footer-bg: url("/players/Field/footer.png");
 
-$field-background: url("/players/Field/field.png")  !important;
+$field-background: url("/players/Field/field.png") !important;
 
-$mobile-background :url("/players/Field/mobile.jpg") !important;
+$mobile-background: url("/players/Field/mobile.jpg") !important;
 
-$text-align:center;
+$text-align: center;
 
 $field-fw-md-container-height: 29vh;
 
-$field-df-container-height:28vh;
+$field-df-container-height: 28vh;
 
 $field-gk-container-height: 27vh;
 
-$field-card-height:20vh;
+$field-card-height: 20vh;
 
-$field-card-width:14vh;
+$field-card-width: 14vh;
 
-$contain-height:27.5vh;
+$contain-height: 27.5vh;
 
-$bench-card-height:20vh;
+$bench-card-height: 20vh;
 
-$bench-card-width:14vh;
+$bench-card-width: 14vh;
 
 /*--------GENERAL VARIABLES---------*/
 
 /*--------- ANIMATIONS --------*/
 
 @mixin transform($property) {
-
   transform: $property;
-
 }
 
-@mixin transition($property){
-    transition: $property;
+@mixin transition($property) {
+  transition: $property;
 }
 /*--------- ANIMATIONS --------*/
 .navbar-brand {
-  color:$font-color
+  color: $font-color;
 }
 
-.link:hover{
+.link:hover {
   color: grey;
 }
 
-body{
+body {
   font-family: $font-family;
   color: $font-color;
-
 }
 
-.modal-card, .card-player{
+.modal-card,
+.card-player {
   cursor: pointer;
 }
 
-.App{
+.App {
   overflow-x: hidden !important;
 }
 
-.row{
+.row {
   background-image: $body-background;
   background-size: 102vw 100vw;
   background-repeat: no-repeat;
 }
 
-.btn-secondary{
+.btn-secondary {
   visibility: hidden;
 }
 
-
-#swal2-title{
-  color:$font-color
+#swal2-title {
+  color: $font-color;
 }
 
-
-.search-box{
+.search-box {
   $padding: 5%;
   margin-bottom: $padding;
   padding-top: $padding;
@@ -92,18 +88,18 @@ body{
 
 /*-------- MODAL TEXT INPUT STYLE --------*/
 
-input[type=text]{
+input[type="text"] {
   margin-top: 25px;
   background-color: transparent;
   border: 2px solid $font-color;
   color: $font-color;
 }
 
-input[type=text]::placeholder{
+input[type="text"]::placeholder {
   color: $font-color;
 }
 
-input[type=text]:focus {
+input[type="text"]:focus {
   background-color: transparent;
   color: $font-color;
   border: 2px solid $font-color;
@@ -111,50 +107,43 @@ input[type=text]:focus {
 
 /*-------- MODAL TEXT INPUT STYLE --------*/
 
-
 /*--------- BENCH STYLE ---------*/
-.col-md-5{
+.col-md-5 {
   margin-top: 3vh;
   margin-bottom: 3vh;
 }
 .contain {
-
   overflow-x: scroll !important;
   overflow-y: hidden !important;
   display: flex;
   text-align: $text-align;
   height: $contain-height;
-  margin-bottom:1vh;
+  margin-bottom: 1vh;
 
-  img{
+  img {
     width: $bench-card-width;
     height: $bench-card-height;
   }
 
-  .players{
-    img:hover{
+  .players {
+    img:hover {
       @include transform(scale(1.1));
     }
 
-    img{
-      @include transition(transform .2s);
+    img {
+      @include transition(transform 0.2s);
     }
   }
-
 }
 
-.select{
-
-  $overflow:hidden !important;
+.select {
+  $overflow: hidden !important;
   overflow-x: $overflow;
   overflow-y: $overflow;
   text-align: $text-align;
-  
 }
 
 /*--------- BENCH STYLE ---------*/
-
-
 
 /*--------- SCROLLBAR STYLE ----------*/
 
@@ -162,49 +151,41 @@ input[type=text]:focus {
   width: 0.5vw;
 }
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #8C8C8C; 
+  background: #8c8c8c;
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #666666; 
+  background: #666666;
 }
 
 /*--------- SCROLLBAR STYLE ----------*/
 
-
-
-
 /*------- PLAYERS STYLE ----------*/
 
-.players{
-
+.players {
   display: inline-block;
 
-  h5{
-    color: $font-color
+  h5 {
+    color: $font-color;
   }
-
 }
 
 /*------- PLAYERS STYLE ----------*/
-
-
-
 
 /*----- FIELD STYLE -----*/
 
-.col-md-7{
+.col-md-7 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding:0 !important;
+  padding: 0 !important;
 }
 
-.field{
+.field {
   background-image: $field-background;
   background-repeat: no-repeat;
   background-position: center center;
@@ -212,141 +193,123 @@ input[type=text]:focus {
   text-align: $text-align;
   width: 100vw;
 
-  .fw, .md{
+  .fw,
+  .md {
     text-align: $text-align;
     height: $field-fw-md-container-height;
   }
-  
-  .df{
+
+  .df {
     text-align: $text-align;
     height: $field-df-container-height;
   }
-  
-   .gk{
+
+  .gk {
     text-align: $text-align;
     height: $field-gk-container-height;
   }
 
-  .players{
+  .players {
     margin-right: 2.5vw;
     margin-left: 2.5vw;
-    img:hover{
+    img:hover {
       @include transform(scale(1.2));
     }
 
-    img{
-      @include transition(transform .2s);
+    img {
+      @include transition(transform 0.2s);
     }
   }
 
   img {
-    width:$field-card-width;
-    height:$field-card-height;
+    width: $field-card-width;
+    height: $field-card-height;
   }
-
 }
 
 /*----- FIELD STYLE -----*/
 
-
-
-
 /*-------- HEADER AND FOOTER STYLE -------*/
 
-%shared-style{
+%shared-style {
   background-size: 100vw 10vh;
 }
 
-.navbar{
-
+.navbar {
   $padding: 1%;
-  padding-top:$padding;
-  padding-bottom:$padding;
+  padding-top: $padding;
+  padding-bottom: $padding;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.19);
   background-image: $header-bg;
   background-position-x: center;
   @extend %shared-style;
 }
 
-
-.footer{
-
-  $padding : 15px;
+.footer {
+  $padding: 15px;
   left: 0;
   bottom: 0;
-  width:100%;
+  width: 100%;
   color: $font-color;
   text-align: $text-align;
-  padding-top:$padding ;
-  padding-bottom:$padding ;
+  padding-top: $padding;
+  padding-bottom: $padding;
   background-image: $footer-bg;
-  box-shadow:0px -3px 16px 0px rgba(50, 50, 50, 0.42);
+  box-shadow: 0px -3px 16px 0px rgba(50, 50, 50, 0.42);
   background-position: center;
   @extend %shared-style;
-
 }
 
 /*-------- HEADER AND FOOTER STYLE -------*/
 
+/*-------- MEDIA QUERY STYLES .......*/
 
-
-
-/*-------- MEDIA QUERY STYLES .......*/ 
-
-
-@media(max-width:480px){
-
-  .row{
+@media (max-width: 480px) {
+  .row {
     background: $mobile-background;
     background-position: center auto;
     background-repeat: no-repeat !important;
-    background-size: 100% 100%!important;
+    background-size: 100% 100% !important;
   }
 
-  .search-box{
+  .search-box {
+    height: 30vh;
 
-      height: 30vh;
-
-      img{
-        height: 26vh;
-        width: 18vh;
-      }
+    img {
+      height: 26vh;
+      width: 18vh;
+    }
   }
-  
-  .field{
-      
-      width: 100vh !important;
-      background-size: 150vw 100vh;
-      margin: 7vh auto;
 
+  .field {
+    width: 100vh !important;
+    background-size: 150vw 100vh;
+    margin: 7vh auto;
 
-    .fw{
+    .fw {
       height: 30vh;
     }
 
-    .md, .df{
+    .md,
+    .df {
       height: 25vh;
     }
-  
-    .gk{
+
+    .gk {
       height: 20vh;
     }
 
     img {
-      width:22vw;
-      height:16vh;
+      width: 22vw;
+      height: 16vh;
     }
-
   }
 
-  .navbar{
-  
+  .navbar {
     height: 10vh;
 
-    .navbar-brand{
+    .navbar-brand {
       font-size: 25px !important;
     }
-    
-  } 
-
+  }
 }
