@@ -1,35 +1,20 @@
 /*--------GENERAL VARIABLES---------*/
 
 $font-family: "Permanent Marker", cursive;
-
 $font-color: #fff;
-
 $body-background: url("/players/Field/bg.jpg") !important;
-
 $header-bg: url("/players/Field/header.png");
-
 $footer-bg: url("/players/Field/footer.png");
-
 $field-background: url("/players/Field/field.png") !important;
-
 $mobile-background: url("/players/Field/mobile.jpg") !important;
-
 $text-align: center;
-
 $field-fw-md-container-height: 29vh;
-
 $field-df-container-height: 28vh;
-
 $field-gk-container-height: 27vh;
-
 $field-card-height: 20vh;
-
 $field-card-width: 14vh;
-
 $contain-height: 27.5vh;
-
 $bench-card-height: 20vh;
-
 $bench-card-width: 14vh;
 
 /*--------GENERAL VARIABLES---------*/
@@ -39,7 +24,6 @@ $bench-card-width: 14vh;
 @mixin transform($property) {
   transform: $property;
 }
-
 @mixin transition($property) {
   transition: $property;
 }
@@ -47,39 +31,31 @@ $bench-card-width: 14vh;
 .navbar-brand {
   color: $font-color;
 }
-
 .link:hover {
   color: grey;
 }
-
 body {
   font-family: $font-family;
   color: $font-color;
 }
-
 .modal-card,
 .card-player {
   cursor: pointer;
 }
-
 .App {
   overflow-x: hidden !important;
 }
-
 .row {
   background-image: $body-background;
   background-size: 102vw 100vw;
   background-repeat: no-repeat;
 }
-
 .btn-secondary {
   visibility: hidden;
 }
-
 #swal2-title {
   color: $font-color;
 }
-
 .search-box {
   $padding: 5%;
   margin-bottom: $padding;
@@ -94,11 +70,9 @@ input[type="text"] {
   border: 2px solid $font-color;
   color: $font-color;
 }
-
 input[type="text"]::placeholder {
   color: $font-color;
 }
-
 input[type="text"]:focus {
   background-color: transparent;
   color: $font-color;
@@ -119,12 +93,10 @@ input[type="text"]:focus {
   text-align: $text-align;
   height: $contain-height;
   margin-bottom: 1vh;
-
   img {
     width: $bench-card-width;
     height: $bench-card-height;
   }
-
   .players {
     img:hover {
       @include transform(scale(1.1));
@@ -135,7 +107,6 @@ input[type="text"]:focus {
     }
   }
 }
-
 .select {
   $overflow: hidden !important;
   overflow-x: $overflow;
@@ -184,7 +155,6 @@ input[type="text"]:focus {
   justify-content: center;
   padding: 0 !important;
 }
-
 .field {
   background-image: $field-background;
   background-repeat: no-repeat;
@@ -192,35 +162,29 @@ input[type="text"]:focus {
   background-size: 58vw 100%;
   text-align: $text-align;
   width: 100vw;
-
   .fw,
   .md {
     text-align: $text-align;
     height: $field-fw-md-container-height;
   }
-
   .df {
     text-align: $text-align;
     height: $field-df-container-height;
   }
-
   .gk {
     text-align: $text-align;
     height: $field-gk-container-height;
   }
-
   .players {
     margin-right: 2.5vw;
     margin-left: 2.5vw;
     img:hover {
       @include transform(scale(1.2));
     }
-
     img {
       @include transition(transform 0.2s);
     }
   }
-
   img {
     width: $field-card-width;
     height: $field-card-height;
@@ -234,7 +198,6 @@ input[type="text"]:focus {
 %shared-style {
   background-size: 100vw 10vh;
 }
-
 .navbar {
   $padding: 1%;
   padding-top: $padding;
@@ -244,7 +207,6 @@ input[type="text"]:focus {
   background-position-x: center;
   @extend %shared-style;
 }
-
 .footer {
   $padding: 15px;
   left: 0;
@@ -271,43 +233,34 @@ input[type="text"]:focus {
     background-repeat: no-repeat !important;
     background-size: 100% 100% !important;
   }
-
   .search-box {
     height: 30vh;
-
     img {
       height: 26vh;
       width: 18vh;
     }
   }
-
   .field {
     width: 100vh !important;
     background-size: 150vw 100vh;
     margin: 7vh auto;
-
     .fw {
       height: 30vh;
     }
-
     .md,
     .df {
       height: 25vh;
     }
-
     .gk {
       height: 20vh;
     }
-
     img {
       width: 22vw;
       height: 16vh;
     }
   }
-
   .navbar {
     height: 10vh;
-
     .navbar-brand {
       font-size: 25px !important;
     }
