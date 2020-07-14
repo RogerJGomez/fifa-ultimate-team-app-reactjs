@@ -1,12 +1,12 @@
 /*--------GENERAL VARIABLES---------*/
 
-$font-family: "Permanent Marker", cursive;
+$font-family: 'Permanent Marker', cursive;
 $font-color: #fff;
-$body-background: url("/players/Field/bg.jpg") !important;
-$header-bg: url("/players/Field/header.png");
-$footer-bg: url("/players/Field/footer.png");
-$field-background: url("/players/Field/field.png") !important;
-$mobile-background: url("/players/Field/mobile.jpg") !important;
+$body-background: url('/players/Field/bg.jpg') !important;
+$header-bg: url('/players/Field/header.png');
+$footer-bg: url('/players/Field/footer.png');
+$field-background: url('/players/Field/field.png') !important;
+$mobile-background: url('/players/Field/mobile.jpg') !important;
 $text-align: center;
 $field-fw-md-container-height: 29vh;
 $field-df-container-height: 28vh;
@@ -31,8 +31,12 @@ $bench-card-width: 14vh;
 .navbar-brand {
   color: $font-color;
 }
+.link {
+  transition: 0.4s ease;
+}
 .link:hover {
-  color: grey;
+  color: white;
+  opacity: 0.7;
 }
 body {
   font-family: $font-family;
@@ -64,16 +68,16 @@ body {
 
 /*-------- MODAL TEXT INPUT STYLE --------*/
 
-input[type="text"] {
+input[type='text'] {
   margin-top: 25px;
   background-color: transparent;
   border: 2px solid $font-color;
   color: $font-color;
 }
-input[type="text"]::placeholder {
+input[type='text']::placeholder {
   color: $font-color;
 }
-input[type="text"]:focus {
+input[type='text']:focus {
   background-color: transparent;
   color: $font-color;
   border: 2px solid $font-color;
